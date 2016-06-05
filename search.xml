@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+    
+    <entry>
+      <title><![CDATA[Hello World]]></title>
+      <url>http://yoursite.com/2016/06/05/hello-world/</url>
+      <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[排序算法]]></title>
+      <url>http://yoursite.com/2016/06/03/sort/</url>
+      <content type="html"><![CDATA[<h1 id="Merge-Sort"><a href="#Merge-Sort" class="headerlink" title="Merge Sort"></a>Merge Sort</h1><p>Merge sort是典型的分治算法, 直接将原问题分为前一半和后一半。要使用分治算法，原问题必须能够分解为规模相当，且能够独立求解的两个子问题。Merge sort的算法框架可以套用在其它的分治算法上，只要把<strong>merge</strong>函数重写即可。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge_sort</span><span class="params">(nums)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> merge_sort_helper(nums, <span class="number">0</span>, len(nums)<span class="number">-1</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge_sort_helper</span><span class="params">(nums, start, end)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> start == end:</span><br><span class="line">        <span class="keyword">return</span> [nums[start]]</span><br><span class="line">        </span><br><span class="line">    mid = start + (end-start)/<span class="number">2</span></span><br><span class="line">    res1 = merge_sort_helper(nums, start, mid)</span><br><span class="line">    res2 = merge_sort_helper(nums, mid+<span class="number">1</span>, end)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> merge(res1, res2)</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge</span><span class="params">(nums1, nums2)</span>:</span></span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    j = <span class="number">0</span></span><br><span class="line">    res = []</span><br><span class="line">    <span class="keyword">while</span> i &lt; len(nums1) <span class="keyword">and</span> j &lt; len(nums2):</span><br><span class="line">        <span class="keyword">if</span> nums1[i] &lt;= nums2[j]:</span><br><span class="line">            res.append(nums1[i])</span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            res.append(nums2[j])</span><br><span class="line">            j += <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> i &lt; len(nums1):</span><br><span class="line">        res.append(nums1[i])</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> j &lt; len(nums2):</span><br><span class="line">        res.append(nums2[j])</span><br><span class="line">        j += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
+<p>Merge sort中的<strong>merge</strong>的办法可以应用到很多问题中。如</p>
+<ul>
+<li><a href="https://leetcode.com/problems/merge-two-sorted-lists/" target="_blank" rel="external">Merge Two Sorted Lists</a></li>
+<li><a href="https://leetcode.com/problems/merge-k-sorted-lists/" target="_blank" rel="external">Merge k Sorted Lists</a></li>
+</ul>
+<p>也是就是说，合并两个有序的线性结构，可以使用该merge算法。那如果是两个有序的二叉树呢(如 二分查找树)？可以这么来做。先通过该merge算法得到一个排好序的数组(时间复杂度为O(m+n))，然后再由该有序数组生成二分查找树(时间复杂度为O(m+n))。其中，m和n分别为两棵树的节点数。当然了，如果该二分查找树的表示方式为数组的话，那直接merge就完成了。</p>
+<h1 id="Quick-Sort"><a href="#Quick-Sort" class="headerlink" title="Quick Sort"></a>Quick Sort</h1><p>Quick Sort也是分治算法。只是它分割子问题的方式相对巧妙一些。相比于merge sort,它不是直接将原数组分为前一半和后一半，而是随机选取一个元素，将原数组分为比这个元素大的一半和不比这个元素大的一半。它的好处是，把两个子问题的结果直接合并就是原问题的解。</p>
+<p>我们还可以换一个角度来看这个排序的过程。当你把原数组分割好的时候，其实你也找到了那个分割元素在数组中的位置。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">quick_sort</span><span class="params">(nums)</span>:</span></span><br><span class="line">    quick_sort_helper(nums, <span class="number">0</span>, len(nums)<span class="number">-1</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">quick_sort_helper</span><span class="params">(nums, start, end)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> start &lt; end:</span><br><span class="line">        r = partition(nums, start, end)</span><br><span class="line">        quick_sort_helper(nums, start, r<span class="number">-1</span>)</span><br><span class="line">        quick_sort_helper(nums, r+<span class="number">1</span>, end)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">partition</span><span class="params">(nums, start, end)</span>:</span></span><br><span class="line">    pivot = nums[end]</span><br><span class="line">    i = start</span><br><span class="line">    j = end</span><br><span class="line">    <span class="keyword">while</span> i &lt; j:</span><br><span class="line">        <span class="keyword">while</span>  i&lt;j <span class="keyword">and</span> nums[i] &lt;= pivot:</span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> i&lt;j <span class="keyword">and</span> nums[j] &gt;= pivot:</span><br><span class="line">            j -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> i &lt; j:</span><br><span class="line">            nums[i], nums[j] = nums[j], nums[i]</span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">            j -= <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    tmp = nums[i]</span><br><span class="line">    nums[i] = nums[end]</span><br><span class="line">    nums[end] = tmp</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> i</span><br></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[安装hexo]]></title>
+      <url>http://yoursite.com/2016/06/03/%E5%AE%89%E8%A3%85hexo/</url>
+      <content type="html"><![CDATA[<h1 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h1><ul>
+<li><a href="https://hexo.io/docs/index.html" target="_blank" rel="external">installation from hexo.io document</a></li>
+<li><a href="https://hexo.io/docs/setup.html" target="_blank" rel="external">setup from hexo.io document</a></li>
+</ul>
+<h1 id="安装和使用中碰到的问题"><a href="#安装和使用中碰到的问题" class="headerlink" title="安装和使用中碰到的问题"></a>安装和使用中碰到的问题</h1><h2 id="没有hexo-server命令"><a href="#没有hexo-server命令" class="headerlink" title="没有hexo server命令"></a>没有hexo server命令</h2><p>原因是hexo-server模块作为一个独立的模块，需要单独安装</p>
+<pre><code>npm install hexo-server --save
+</code></pre><p>详见<a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server section of hexo.io document</a></p>
+<h2 id="运行Hexo-server命令后，访问4000端口出现cannot-get"><a href="#运行Hexo-server命令后，访问4000端口出现cannot-get" class="headerlink" title="运行Hexo server命令后，访问4000端口出现cannot get?"></a>运行Hexo server命令后，访问4000端口出现cannot get?</h2><p>查看public目录，发现没有index文件</p>
+<pre><code>ls /blog/public/
+</code></pre><p>原因是hexo有些依赖的模块没有安装，从而没有正确的生成网站。完成安装即可。<br>在你的blog目录下运行</p>
+<pre><code>npm install
+</code></pre><p>详见<a href="http://www.zhihu.com/question/35964327" target="_blank" rel="external">Hexo本地安装 都是默认的文件 命令运行了 访问4000端口出现cannot get?</a></p>
+<h2 id="hexo的next主题显示德语"><a href="#hexo的next主题显示德语" class="headerlink" title="hexo的next主题显示德语"></a>hexo的next主题显示德语</h2><p>原因不明。将blog/themes/next/languages/de.yml删除了，这样会显示默认语言，也就是英文。</p>
+<h1 id="hexo的主题"><a href="#hexo的主题" class="headerlink" title="hexo的主题"></a>hexo的主题</h1><h2 id="next"><a href="#next" class="headerlink" title="next"></a>next</h2><ul>
+<li><a href="http://theme-next.iissnan.com/" target="_blank" rel="external">介绍</a></li>
+<li><a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">安装</a></li>
+<li>一些配置<ul>
+<li><a href="http://theme-next.iissnan.com/theme-settings.html#tags-page" target="_blank" rel="external">添加「标签」页面</a></li>
+<li><a href="http://theme-next.iissnan.com/theme-settings.html#categories-page" target="_blank" rel="external">添加「分类」页面</a></li>
+<li><a href="http://theme-next.iissnan.com/third-party-services.html#local-search" target="_blank" rel="external">Local Search</a></li>
+<li><a href="http://theme-next.iissnan.com/third-party-services.html#mathjax" target="_blank" rel="external">MathJax</a></li>
+</ul>
+</li>
+</ul>
+]]></content>
+    </entry>
+    
+  
+  
+</search>
