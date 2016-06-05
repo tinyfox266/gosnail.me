@@ -19,6 +19,18 @@
     </entry>
     
     <entry>
+      <title><![CDATA[test]]></title>
+      <url>http://gosnail.me/2016/06/05/test/</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[multi-hop-ssh]]></title>
+      <url>http://gosnail.me/2016/06/05/multi-hop-ssh/</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[排序算法]]></title>
       <url>http://gosnail.me/2016/06/03/sort/</url>
       <content type="html"><![CDATA[<h1 id="Merge-Sort"><a href="#Merge-Sort" class="headerlink" title="Merge Sort"></a>Merge Sort</h1><p>Merge sort是典型的分治算法, 直接将原问题分为前一半和后一半。要使用分治算法，原问题必须能够分解为规模相当，且能够独立求解的两个子问题。Merge sort的算法框架可以套用在其它的分治算法上，只要把<strong>merge</strong>函数重写即可。</p>
