@@ -42,7 +42,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="tech," />
+  <meta name="keywords" content="algorithm," />
 
 
 
@@ -58,37 +58,22 @@
 
 
 
-<meta name="description" content="安装hexo
-installation from hexo.io document
-setup from hexo.io document
-
-安装和使用中碰到的问题没有hexo server命令原因是hexo-server模块作为一个独立的模块，需要单独安装
-npm install hexo-server --save
-详见Server section of hexo.io document
-运行">
+<meta name="description" content="在实现一个具体算法时，除了整体的设计思路外，还需要对一些数据结构的基本操作熟记于心。这样才容易将心里的想法更快地变成代码。
+链表(linked list)插入结点将newnode插入到cur结点之后123next = cur.nextcur.next = newnodenewnode.next = next
+删除节点删除cur结点之后的结点12if cur.next != None:    cur">
 <meta property="og:type" content="article">
-<meta property="og:title" content="安装hexo">
-<meta property="og:url" content="http://gosnail.me/2016/06/03/安装hexo/index.html">
+<meta property="og:title" content="一些数据结构的基本操作">
+<meta property="og:url" content="http://gosnail.me/2016/06/06/basic-operation/index.html">
 <meta property="og:site_name" content="Go Snail">
-<meta property="og:description" content="安装hexo
-installation from hexo.io document
-setup from hexo.io document
-
-安装和使用中碰到的问题没有hexo server命令原因是hexo-server模块作为一个独立的模块，需要单独安装
-npm install hexo-server --save
-详见Server section of hexo.io document
-运行">
-<meta property="og:updated_time" content="2016-06-03T09:02:42.000Z">
+<meta property="og:description" content="在实现一个具体算法时，除了整体的设计思路外，还需要对一些数据结构的基本操作熟记于心。这样才容易将心里的想法更快地变成代码。
+链表(linked list)插入结点将newnode插入到cur结点之后123next = cur.nextcur.next = newnodenewnode.next = next
+删除节点删除cur结点之后的结点12if cur.next != None:    cur">
+<meta property="og:updated_time" content="2016-06-06T09:03:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="安装hexo">
-<meta name="twitter:description" content="安装hexo
-installation from hexo.io document
-setup from hexo.io document
-
-安装和使用中碰到的问题没有hexo server命令原因是hexo-server模块作为一个独立的模块，需要单独安装
-npm install hexo-server --save
-详见Server section of hexo.io document
-运行">
+<meta name="twitter:title" content="一些数据结构的基本操作">
+<meta name="twitter:description" content="在实现一个具体算法时，除了整体的设计思路外，还需要对一些数据结构的基本操作熟记于心。这样才容易将心里的想法更快地变成代码。
+链表(linked list)插入结点将newnode插入到cur结点之后123next = cur.nextcur.next = newnodenewnode.next = next
+删除节点删除cur结点之后的结点12if cur.next != None:    cur">
 
 
 
@@ -106,7 +91,7 @@ npm install hexo-server --save
   };
 </script>
 
-  <title> 安装hexo | Go Snail </title>
+  <title> 一些数据结构的基本操作 | Go Snail </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -259,7 +244,7 @@ npm install hexo-server --save
             
             
               
-                安装hexo
+                一些数据结构的基本操作
               
             
           </h1>
@@ -271,11 +256,30 @@ npm install hexo-server --save
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-06-03T15:26:31+08:00" content="2016-06-03">
-              2016-06-03
+            <time itemprop="dateCreated" datetime="2016-06-06T16:13:33+08:00" content="2016-06-06">
+              2016-06-06
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">algorithm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
@@ -299,30 +303,9 @@ npm install hexo-server --save
       
 
       
-        <h1 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h1><ul>
-<li><a href="https://hexo.io/docs/index.html" target="_blank" rel="external">installation from hexo.io document</a></li>
-<li><a href="https://hexo.io/docs/setup.html" target="_blank" rel="external">setup from hexo.io document</a></li>
-</ul>
-<h1 id="安装和使用中碰到的问题"><a href="#安装和使用中碰到的问题" class="headerlink" title="安装和使用中碰到的问题"></a>安装和使用中碰到的问题</h1><h2 id="没有hexo-server命令"><a href="#没有hexo-server命令" class="headerlink" title="没有hexo server命令"></a>没有hexo server命令</h2><p>原因是hexo-server模块作为一个独立的模块，需要单独安装</p>
-<pre><code>npm install hexo-server --save
-</code></pre><p>详见<a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server section of hexo.io document</a></p>
-<h2 id="运行Hexo-server命令后，访问4000端口出现cannot-get"><a href="#运行Hexo-server命令后，访问4000端口出现cannot-get" class="headerlink" title="运行Hexo server命令后，访问4000端口出现cannot get?"></a>运行Hexo server命令后，访问4000端口出现cannot get?</h2><p>查看public目录，发现没有index文件</p>
-<pre><code>ls /blog/public/
-</code></pre><p>原因是hexo有些依赖的模块没有安装，从而没有正确的生成网站。完成安装即可。<br>在你的blog目录下运行</p>
-<pre><code>npm install
-</code></pre><p>详见<a href="http://www.zhihu.com/question/35964327" target="_blank" rel="external">Hexo本地安装 都是默认的文件 命令运行了 访问4000端口出现cannot get?</a></p>
-<h2 id="hexo的next主题显示德语"><a href="#hexo的next主题显示德语" class="headerlink" title="hexo的next主题显示德语"></a>hexo的next主题显示德语</h2><p>原因不明。将blog/themes/next/languages/de.yml删除了，这样会显示默认语言，也就是英文。</p>
-<h1 id="hexo的主题"><a href="#hexo的主题" class="headerlink" title="hexo的主题"></a>hexo的主题</h1><h2 id="next"><a href="#next" class="headerlink" title="next"></a>next</h2><ul>
-<li><a href="http://theme-next.iissnan.com/" target="_blank" rel="external">介绍</a></li>
-<li><a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">安装</a></li>
-<li>一些配置<ul>
-<li><a href="http://theme-next.iissnan.com/theme-settings.html#tags-page" target="_blank" rel="external">添加「标签」页面</a></li>
-<li><a href="http://theme-next.iissnan.com/theme-settings.html#categories-page" target="_blank" rel="external">添加「分类」页面</a></li>
-<li><a href="http://theme-next.iissnan.com/third-party-services.html#local-search" target="_blank" rel="external">Local Search</a></li>
-<li><a href="http://theme-next.iissnan.com/third-party-services.html#mathjax" target="_blank" rel="external">MathJax</a></li>
-</ul>
-</li>
-</ul>
+        <p>在实现一个具体算法时，除了整体的设计思路外，还需要对一些数据结构的基本操作熟记于心。这样才容易将心里的想法更快地变成代码。</p>
+<h1 id="链表-linked-list"><a href="#链表-linked-list" class="headerlink" title="链表(linked list)"></a>链表(linked list)</h1><h2 id="插入结点"><a href="#插入结点" class="headerlink" title="插入结点"></a>插入结点</h2><p>将newnode插入到cur结点之后<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">next = cur.next</span><br><span class="line">cur.next = newnode</span><br><span class="line">newnode.next = next</span><br></pre></td></tr></table></figure></p>
+<h2 id="删除节点"><a href="#删除节点" class="headerlink" title="删除节点"></a>删除节点</h2><p>删除cur结点之后的结点<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> cur.next != <span class="keyword">None</span>:</span><br><span class="line">    cur.next = cur.next.next</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -344,7 +327,7 @@ npm install hexo-server --save
       
         <div class="post-tags">
           
-            <a href="/tags/tech/" rel="tag">#tech</a>
+            <a href="/tags/algorithm/" rel="tag">#algorithm</a>
           
         </div>
       
@@ -353,12 +336,16 @@ npm install hexo-server --save
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/06/06/algorithm-summary/" rel="next" title="解算法题的常用方法">
+                <i class="fa fa-chevron-left"></i> 解算法题的常用方法
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/06/03/sort/" rel="prev" title="排序算法">
-                排序算法 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/06/07/dangzhang/" rel="prev" title="中国共产党章程(十八大)">
+                中国共产党章程(十八大) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -473,7 +460,7 @@ npm install hexo-server --save
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装hexo"><span class="nav-number">1.</span> <span class="nav-text">安装hexo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装和使用中碰到的问题"><span class="nav-number">2.</span> <span class="nav-text">安装和使用中碰到的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#没有hexo-server命令"><span class="nav-number">2.1.</span> <span class="nav-text">没有hexo server命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行Hexo-server命令后，访问4000端口出现cannot-get"><span class="nav-number">2.2.</span> <span class="nav-text">运行Hexo server命令后，访问4000端口出现cannot get?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo的next主题显示德语"><span class="nav-number">2.3.</span> <span class="nav-text">hexo的next主题显示德语</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#hexo的主题"><span class="nav-number">3.</span> <span class="nav-text">hexo的主题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#next"><span class="nav-number">3.1.</span> <span class="nav-text">next</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#链表-linked-list"><span class="nav-number">1.</span> <span class="nav-text">链表(linked list)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#插入结点"><span class="nav-number">1.1.</span> <span class="nav-text">插入结点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除节点"><span class="nav-number">1.2.</span> <span class="nav-text">删除节点</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

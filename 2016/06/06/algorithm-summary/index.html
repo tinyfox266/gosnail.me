@@ -1,0 +1,855 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="algorithm," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+
+
+
+
+
+
+<meta name="description" content="常用的分解子问题的方式(n-1) + 1先得到前n-1个元素的问题的解，再构造新加一个元素后的解。使用这种办法的典型算法为insert sort 。针对二叉树，就是先分别求在两棵子树上的解，然后再构造原树的解。
+这是一种从后向前，缩减问题规模的方式。
+leetcode题库中，能使用该方法解决的题有:
+
+344. Reverse String  先翻转前n-1字符,结果记为res，然后把第n个字符插">
+<meta property="og:type" content="article">
+<meta property="og:title" content="解算法题的常用方法">
+<meta property="og:url" content="http://gosnail.me/2016/06/06/algorithm-summary/index.html">
+<meta property="og:site_name" content="Go Snail">
+<meta property="og:description" content="常用的分解子问题的方式(n-1) + 1先得到前n-1个元素的问题的解，再构造新加一个元素后的解。使用这种办法的典型算法为insert sort 。针对二叉树，就是先分别求在两棵子树上的解，然后再构造原树的解。
+这是一种从后向前，缩减问题规模的方式。
+leetcode题库中，能使用该方法解决的题有:
+
+344. Reverse String  先翻转前n-1字符,结果记为res，然后把第n个字符插">
+<meta property="og:updated_time" content="2016-06-06T15:30:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="解算法题的常用方法">
+<meta name="twitter:description" content="常用的分解子问题的方式(n-1) + 1先得到前n-1个元素的问题的解，再构造新加一个元素后的解。使用这种办法的典型算法为insert sort 。针对二叉树，就是先分别求在两棵子树上的解，然后再构造原树的解。
+这是一种从后向前，缩减问题规模的方式。
+leetcode题库中，能使用该方法解决的题有:
+
+344. Reverse String  先翻转前n-1字符,结果记为res，然后把第n个字符插">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: 'Author'
+    }
+  };
+</script>
+
+  <title> 解算法题的常用方法 | Go Snail </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Go Snail</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">前进吧，小蜗</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                解算法题的常用方法
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-06-06T09:24:43+08:00" content="2016-06-06">
+              2016-06-06
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">algorithm</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="常用的分解子问题的方式"><a href="#常用的分解子问题的方式" class="headerlink" title="常用的分解子问题的方式"></a>常用的分解子问题的方式</h1><h2 id="n-1-1"><a href="#n-1-1" class="headerlink" title="(n-1) + 1"></a>(n-1) + 1</h2><p>先得到前n-1个元素的问题的解，再构造新加一个元素后的解。使用这种办法的典型算法为<strong>insert sort</strong> 。<br>针对二叉树，就是先分别求在两棵子树上的解，然后再构造原树的解。</p>
+<p>这是一种从后向前，缩减问题规模的方式。</p>
+<p>leetcode题库中，能使用该方法解决的题有:</p>
+<ul>
+<li><a href="https://leetcode.com/problems/reverse-string/" target="_blank" rel="external">344. Reverse String</a><br>  先翻转前n-1字符,结果记为res，然后把第n个字符插在res的前面</li>
+<li><a href="https://leetcode.com/problems/counting-bits/" target="_blank" rel="external">338. Counting Bits</a><br>  分别求每个数m的二进制表示中1的个数。<br>  这里把输入m看作是n个bit的list。先计算前n-1个bit中1的个数(不妨设为cnt)，如果第n个bit是1，则原问题的解为cnt+1，否则为cnt</li>
+<li><a href="https://leetcode.com/problems/maximum-depth-of-binary-tree/" target="_blank" rel="external">104. Maximum Depth of Binary Tree</a><br>  先分别计算左子树和右子树的深度，原树深度为其两棵子树的深度的最大值加1。</li>
+<li><a href="https://leetcode.com/problems/invert-binary-tree/" target="_blank" rel="external">226. Invert Binary Tree</a><br>  先分别翻转左子树和右子树，然后把翻转后的右子树作为其左子树，把翻转后的左子树作为其右子树。</li>
+<li><a href="https://leetcode.com/problems/move-zeroes/" target="_blank" rel="external">283. Move Zeroes</a><br>  先将前n-1个元素中的数字移动到正确的位置。用i记录前n-1个元素中第一个0的index。如果第n个元素为0, 则结束。否则，将第n个元素拷贝到第i个位置。</li>
+<li><a href="https://leetcode.com/problems/same-tree/" target="_blank" rel="external">100. Same Tree</a><br>  先看两棵子树的左子树和右子树是否分别相等，是的话，再看两棵树的根的值是否相等，是的话，两棵树相等。否则，不相等。</li>
+<li><a href="https://leetcode.com/problems/product-of-array-except-self/" target="_blank" rel="external">238. Product of Array Except Self</a><br>  先求出前n-1个元素的结果,不妨记为res，然后将结果中的每个元素乘以第n个元素。得到了前n-1个元素的最终结果。第n个元素的结果为res[n-1]乘以第n-1个数。</li>
+<li><a href="https://leetcode.com/problems/reverse-linked-list/" target="_blank" rel="external">206. Reverse Linked List</a><br>  先将前后n-1个元素的list逆序,得到的结果记为resList，然后把第1个元素连接到resList的末尾。注意要记录逆序后的list的表头和表尾。</li>
+</ul>
+<h2 id="1-n-1"><a href="#1-n-1" class="headerlink" title="1 + (n-1)"></a>1 + (n-1)</h2><p>先从原问题中排除掉一个元素，然后求解剩下n-1个元素问题的解。最后，再构造原问题的解。使用这种方法的典型算法为<strong>bubble sort</strong> 。</p>
+<p>这里缩减问题规模的方式，很特殊，是找到一个特殊的元素，将其减去。</p>
+<p>leetcode题库中，能使用该方法解决的题有:</p>
+<ul>
+<li><a href="https://leetcode.com/problems/delete-node-in-a-linked-list/" target="_blank" rel="external">237. Delete Node in a Linked List</a><br>先看第一个结点，如果它是要删除的结点，删除之，否则从剩下的链表中删除指定结点。</li>
+</ul>
+<h2 id="n-2-n-2"><a href="#n-2-n-2" class="headerlink" title="(n/2) + (n/2)"></a>(n/2) + (n/2)</h2><p>先分别求解前n/2个元素和后n/2个元素问题的解, 然后再构造原问题的解。使用这种方法的典型算法为 <strong>merge sort</strong> 。</p>
+<p>leetcode题库中，能使用该方法解决的题有:</p>
+<ul>
+<li><a href="https://leetcode.com/problems/counting-bits/" target="_blank" rel="external">338. Counting Bits</a><br>  分别求每个数m的二进制表示中1的个数。<br>  这里把输入m看作是n个bit的list。分别计算前n/2和后n/2个bit中1的个数，然后将两者相加即可。</li>
+</ul>
+<h1 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h1><p>二分查找其实是<code>(n/2)+(n/2)</code>问题的一种特例。因为数据的有序性质，而使得原问题的解直接归结为前一半问题或后一半问题的解。从而消除了回溯。</p>
+<p>leetcode题库中，能使用该方法解决的题有:</p>
+<h1 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h1><p>遍历是把问题的求解过程变成了判断过程。当解空间有限时，我们可以枚举解空间的任意一个值，再判断该值是否为原问题的解。常见的遍历(枚举)方法为 <em>深度优先</em> 和 <em>广度优先</em> ,以避免枚举过程中的重复问题。针对线性的数据结构， <em>线性遍历遍历</em> 就可以了。</p>
+<h2 id="线性遍历"><a href="#线性遍历" class="headerlink" title="线性遍历"></a>线性遍历</h2><p>leetcode题库中，能使用该方法解决的题有:</p>
+<ul>
+<li><a href="https://leetcode.com/problems/single-number/" target="_blank" rel="external">136. Single Number</a></li>
+<li><a href="https://leetcode.com/problems/intersection-of-two-arrays/" target="_blank" rel="external">349. Intersection of Two Arrays</a></li>
+<li><a href="https://leetcode.com/problems/single-number-iii/" target="_blank" rel="external">260. Single Number III</a></li>
+<li><a href="https://leetcode.com/problems/delete-node-in-a-linked-list/" target="_blank" rel="external">237. Delete Node in a Linked List</a></li>
+<li><a href="https://leetcode.com/problems/valid-anagram/" target="_blank" rel="external">242. Valid Anagram</a></li>
+<li><a href="https://leetcode.com/problems/majority-element/" target="_blank" rel="external">169. Majority Element</a></li>
+<li><a href="https://leetcode.com/problems/contains-duplicate/" target="_blank" rel="external">217. Contains Duplicate</a></li>
+<li><a href="https://leetcode.com/problems/missing-number/" target="_blank" rel="external">268. Missing Number</a></li>
+<li><a href="https://leetcode.com/problems/maximum-product-of-word-lengths/" target="_blank" rel="external">318. Maximum Product of Word Lengths</a></li>
+</ul>
+<h2 id="深度优先"><a href="#深度优先" class="headerlink" title="深度优先"></a>深度优先</h2><h2 id="广度优先"><a href="#广度优先" class="headerlink" title="广度优先"></a>广度优先</h2><h1 id="回溯-backtrace"><a href="#回溯-backtrace" class="headerlink" title="回溯(backtrace)"></a>回溯(backtrace)</h1><p>有时，我们无需将解空间全部遍历一遍。当我们知道解空间中的一个值不是原问题的解时，我们可以知道其它的一些值也一定不是解。这时候，就用到了回溯。比方说，解空间的值为 <strong>*(a1,…,an)</strong> , 当 <strong>ai</strong> 等于某值(不妨设为 <strong>v</strong> )时, 对于任意的 <strong>a(i+1) … an</strong> , <strong>(v1, …,v(i-1), v, a(i+1), … ,an)</strong> 都不是原问题的解，则无需再遍历这些解。回溯的策略是，依次遍历 <strong>ai</strong> 的值。 将遍历解空间的值变为了遍历解空间中各个维度的值。一个典型算法为 <strong>八皇后问题</strong> 。 回溯可以看作是带剪枝的遍历。</p>
+<p>leetcode题库中，能使用该方法解决的题有:</p>
+<ul>
+<li><a href="https://leetcode.com/problems/n-queens-ii/" target="_blank" rel="external">52. N-Queens II</a><br> 依次确定第i行的皇后的位置。当第i的某个位置不能放皇后时，第i行后的其它行也不必遍历了。</li>
+</ul>
+<h1 id="动态规划-dynamic-programming"><a href="#动态规划-dynamic-programming" class="headerlink" title="动态规划(dynamic programming)"></a>动态规划(dynamic programming)</h1><p>不太明白动态规划原本的含义是什么。我只把它看作是一种优化手段，当发现重复计算时，便将计算结果存下来。</p>
+<p>leetcode题库中，能使用该方法解决的题有:</p>
+<ul>
+<li><a href="https://leetcode.com/problems/counting-bits/" target="_blank" rel="external">338. Counting Bits</a></li>
+</ul>
+<h1 id="一些特殊方法"><a href="#一些特殊方法" class="headerlink" title="一些特殊方法"></a>一些特殊方法</h1><p>使用上述的方法，通常能找到一个多项式时间的算法。但是，如果希望得到更低时间复杂度的算法，就需要进行一些细致的观察了。利用原有数据中的一些特殊性质。在这里列出的方法一般没法直接拿来用。就直接当作题库吧。遇到过就会，没有遇到过，还是算了吧。</p>
+<h2 id="Two-Pointers"><a href="#Two-Pointers" class="headerlink" title="Two Pointers"></a>Two Pointers</h2><p>该方法缩减问题规模的方式可以从前后两个方向开始缩减。到底从哪边缩减，因具体情况而定。该方法常用于有序数组上的一些问题。使用这个办法的典型算法为 <strong>quick sort</strong> 中的 <strong>partition</strong>。如果原问题本身有一种前后的对称性，也可以考虑使用该办法。</p>
+<p>leetcode题库中，能使用该方法解决的题有:</p>
+<ul>
+<li><a href="https://leetcode.com/problems/reverse-string/" target="_blank" rel="external">344 Reverse String</a><br>基于这样的观察：将字符串反转，是先将首尾两个字母调换，然后剩下的字符串翻转。</li>
+</ul>
+<h2 id="位运算"><a href="#位运算" class="headerlink" title="位运算"></a>位运算</h2><p>这种题，千变万化，目前没有找到规律。</p>
+<p>leetcode题库中，能使用该方法解决的题有:</p>
+<ul>
+<li><a href="https://leetcode.com/problems/counting-bits/" target="_blank" rel="external">338. Counting Bits</a></li>
+<li><a href="https://leetcode.com/problems/single-number/" target="_blank" rel="external">136. Single Number</a></li>
+<li><a href="https://leetcode.com/problems/single-number-iii/" target="_blank" rel="external">260. Single Number III</a></li>
+</ul>
+<h2 id="其它的一些技巧"><a href="#其它的一些技巧" class="headerlink" title="其它的一些技巧"></a>其它的一些技巧</h2><p>记录某个字母c出现的次数，可以用数组来存储。num[ord(c)-ord(‘a’)]记录c出现的次数。如果知道要遍历的数值的范围，也可以这么做。</p>
+<ul>
+<li><a href="https://leetcode.com/problems/valid-anagram/" target="_blank" rel="external">242. Valid Anagram</a></li>
+<li><a href="https://leetcode.com/problems/missing-number/" target="_blank" rel="external">268. Missing Number</a></li>
+</ul>
+<p>记录某个元素出现的次数，或记录某个元素是否出现过，可以使用HashTable，查找时间复杂度为O(1)</p>
+<ul>
+<li><a href="https://leetcode.com/problems/contains-duplicate/" target="_blank" rel="external">217. Contains Duplicate</a></li>
+</ul>
+<p>记录某个字母(都是小写字母或都是大写字母)是否出现过, 可以用一个int数的各个bit来记录。</p>
+<ul>
+<li><a href="https://leetcode.com/problems/maximum-product-of-word-lengths/" target="_blank" rel="external">318. Maximum Product of Word Lengths</a></li>
+</ul>
+<p>将数组化身为链表</p>
+<ul>
+<li><a href="https://leetcode.com/problems/find-the-duplicate-number/" target="_blank" rel="external">287. Find the Duplicate Number</a><br>  和操作系统中存储页的freelist方式相似。</li>
+</ul>
+<p>关于数组的问题，看看先排序后，是否能有更好的算法。</p>
+<h1 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h1><p>有一些习题的算法无法用上面的办法想到，或者有一些习题的一些算法无法用上面的办法想到。这里列出了这些习题。</p>
+<h2 id="math"><a href="#math" class="headerlink" title="math"></a>math</h2><ul>
+<li><a href="https://leetcode.com/problems/add-digits/" target="_blank" rel="external">258. Add Digits</a></li>
+<li><a href="https://leetcode.com/problems/excel-sheet-column-number/" target="_blank" rel="external">171. Excel Sheet Column Number</a><br>将26进制数转化为10进制数。</li>
+</ul>
+<h2 id="天才的想法"><a href="#天才的想法" class="headerlink" title="天才的想法"></a>天才的想法</h2><p>天才的想法总来自于那灵光一闪的一刻。我们很难探究这些想法的来源。只要安静地欣赏就好了。</p>
+<h3 id="投票"><a href="#投票" class="headerlink" title="投票"></a>投票</h3><ul>
+<li><a href="https://leetcode.com/problems/majority-element/" target="_blank" rel="external">169. Majority Element</a></li>
+</ul>
+<h3 id="寻找环"><a href="#寻找环" class="headerlink" title="寻找环"></a>寻找环</h3><ul>
+<li><a href="https://leetcode.com/problems/find-the-duplicate-number/" target="_blank" rel="external">287. Find the Duplicate Number</a>  </li>
+</ul>
+<h2 id="其它-1"><a href="#其它-1" class="headerlink" title="其它"></a>其它</h2><ul>
+<li><a href="https://leetcode.com/problems/nim-game/" target="_blank" rel="external">Nim Game</a></li>
+<li><a href="https://leetcode.com/problems/product-of-array-except-self/" target="_blank" rel="external">238. Product of Array Except Self</a></li>
+<li><a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/" target="_blank" rel="external">122. Best Time to Buy and Sell Stock II</a></li>
+<li><a href="https://leetcode.com/problems/top-k-frequent-elements/" target="_blank" rel="external">347. Top K Frequent Elements</a></li>
+<li><a href="https://leetcode.com/problems/binary-tree-preorder-traversal/" target="_blank" rel="external">144. Binary Tree Preorder Traversal</a></li>
+<li><a href="https://leetcode.com/problems/binary-tree-inorder-traversal/" target="_blank" rel="external">94. Binary Tree Inorder Traversal</a></li>
+<li><a href="https://leetcode.com/problems/roman-to-integer/" target="_blank" rel="external">13. Roman to Integer</a></li>
+<li><a href="https://leetcode.com/problems/integer-to-roman/" target="_blank" rel="external">12. Integer to Roman</a></li>
+<li></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/algorithm/" rel="tag">#algorithm</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/05/multi-hop-ssh/" rel="next" title="multi-hop ssh">
+                <i class="fa fa-chevron-left"></i> multi-hop ssh
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/06/06/basic-operation/" rel="prev" title="一些数据结构的基本操作">
+                一些数据结构的基本操作 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="张紫鹏" />
+          <p class="site-author-name" itemprop="name">张紫鹏</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-name">posts</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#常用的分解子问题的方式"><span class="nav-number">1.</span> <span class="nav-text">常用的分解子问题的方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#n-1-1"><span class="nav-number">1.1.</span> <span class="nav-text">(n-1) + 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-n-1"><span class="nav-number">1.2.</span> <span class="nav-text">1 + (n-1)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#n-2-n-2"><span class="nav-number">1.3.</span> <span class="nav-text">(n/2) + (n/2)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二分查找"><span class="nav-number">2.</span> <span class="nav-text">二分查找</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#遍历"><span class="nav-number">3.</span> <span class="nav-text">遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#线性遍历"><span class="nav-number">3.1.</span> <span class="nav-text">线性遍历</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深度优先"><span class="nav-number">3.2.</span> <span class="nav-text">深度优先</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#广度优先"><span class="nav-number">3.3.</span> <span class="nav-text">广度优先</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#回溯-backtrace"><span class="nav-number">4.</span> <span class="nav-text">回溯(backtrace)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动态规划-dynamic-programming"><span class="nav-number">5.</span> <span class="nav-text">动态规划(dynamic programming)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一些特殊方法"><span class="nav-number">6.</span> <span class="nav-text">一些特殊方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Two-Pointers"><span class="nav-number">6.1.</span> <span class="nav-text">Two Pointers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#位运算"><span class="nav-number">6.2.</span> <span class="nav-text">位运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其它的一些技巧"><span class="nav-number">6.3.</span> <span class="nav-text">其它的一些技巧</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其它"><span class="nav-number">7.</span> <span class="nav-text">其它</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#math"><span class="nav-number">7.1.</span> <span class="nav-text">math</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#天才的想法"><span class="nav-number">7.2.</span> <span class="nav-text">天才的想法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#投票"><span class="nav-number">7.2.1.</span> <span class="nav-text">投票</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#寻找环"><span class="nav-number">7.2.2.</span> <span class="nav-text">寻找环</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其它-1"><span class="nav-number">7.3.</span> <span class="nav-text">其它</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">张紫鹏</span>
+</div>
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+
+</body>
+</html>
