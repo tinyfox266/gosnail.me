@@ -61,7 +61,7 @@
 <meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Go Snail">
-<meta property="og:url" content="http://gosnail.me/archives/2016/06/index.html">
+<meta property="og:url" content="http://gosnail.me/page/2/index.html">
 <meta property="og:site_name" content="Go Snail">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
@@ -84,7 +84,7 @@
   };
 </script>
 
-  <title> Archive | Go Snail </title>
+  <title> Go Snail </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -105,7 +105,9 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left 
+   page-home 
+ ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -215,403 +217,233 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
+  <section id="posts" class="posts-expand">
+    
+      
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
+  
+  
 
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      Um..! 12 posts in total. Keep on posting.
-    </span>
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
 
-      
-      
-      
-
-      
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2016">2016</h2>
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/03/安装hexo/" itemprop="url">
+                  安装hexo
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-06-03T15:26:31+08:00" content="2016-06-03">
+              2016-06-03
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
         </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
       
       
 
       
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
         
-            <a class="post-title-link" href="/2016/06/08/test/" itemprop="url">
-              
-                <span itemprop="name">test</span>
-              
-            </a>
+          
+            <h1 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h1><ul>
+<li><a href="https://hexo.io/docs/index.html" target="_blank" rel="external">installation from hexo.io document</a></li>
+<li><a href="https://hexo.io/docs/setup.html" target="_blank" rel="external">setup from hexo.io document</a></li>
+</ul>
+<h1 id="安装和使用中碰到的问题"><a href="#安装和使用中碰到的问题" class="headerlink" title="安装和使用中碰到的问题"></a>安装和使用中碰到的问题</h1><h2 id="没有hexo-server命令"><a href="#没有hexo-server命令" class="headerlink" title="没有hexo server命令"></a>没有hexo server命令</h2><p>原因是hexo-server模块作为一个独立的模块，需要单独安装</p>
+<pre><code>npm install hexo-server --save
+</code></pre><p>详见<a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server section of hexo.io document</a></p>
+<h2 id="运行Hexo-server命令后，访问4000端口出现cannot-get"><a href="#运行Hexo-server命令后，访问4000端口出现cannot-get" class="headerlink" title="运行Hexo server命令后，访问4000端口出现cannot get?"></a>运行Hexo server命令后，访问4000端口出现cannot get?</h2><p>查看public目录，发现没有index文件</p>
+<pre><code>ls /blog/public/
+</code></pre><p>原因是hexo有些依赖的模块没有安装，从而没有正确的生成网站。完成安装即可。<br>在你的blog目录下运行</p>
+<pre><code>npm install
+</code></pre><p>详见<a href="http://www.zhihu.com/question/35964327" target="_blank" rel="external">Hexo本地安装 都是默认的文件 命令运行了 访问4000端口出现cannot get?</a></p>
+<h2 id="hexo的next主题显示德语"><a href="#hexo的next主题显示德语" class="headerlink" title="hexo的next主题显示德语"></a>hexo的next主题显示德语</h2><p>原因不明。将blog/themes/next/languages/de.yml删除了，这样会显示默认语言，也就是英文。</p>
+<h1 id="hexo的主题"><a href="#hexo的主题" class="headerlink" title="hexo的主题"></a>hexo的主题</h1><h2 id="next"><a href="#next" class="headerlink" title="next"></a>next</h2><ul>
+<li><a href="http://theme-next.iissnan.com/" target="_blank" rel="external">介绍</a></li>
+<li><a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">安装</a></li>
+<li>一些配置<ul>
+<li><a href="http://theme-next.iissnan.com/theme-settings.html#tags-page" target="_blank" rel="external">添加「标签」页面</a></li>
+<li><a href="http://theme-next.iissnan.com/theme-settings.html#categories-page" target="_blank" rel="external">添加「分类」页面</a></li>
+<li><a href="http://theme-next.iissnan.com/third-party-services.html#local-search" target="_blank" rel="external">Local Search</a></li>
+<li><a href="http://theme-next.iissnan.com/third-party-services.html#mathjax" target="_blank" rel="external">MathJax</a></li>
+</ul>
+</li>
+</ul>
+
+          
         
-      </h1>
+      
+    </div>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-06-08T12:40:00+08:00"
-              content="2016-06-08" >
-          06-08
-        </time>
-      </div>
+    <div>
+      
+    </div>
 
-    </header>
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
   </article>
 
 
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
 
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
         
-            <a class="post-title-link" href="/2016/06/08/caiyuan/" itemprop="url">
-              
-                <span itemprop="name">我家的菜园</span>
-              
-            </a>
         
-      </h1>
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/03/hello-world/" itemprop="url">
+                  Hello World
+                </a>
+              
+            
+          </h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-06-08T11:12:58+08:00"
-              content="2016-06-08" >
-          06-08
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-06-03T00:00:00+08:00" content="2016-06-03">
+              2016-06-03
+            </time>
+          </span>
 
-    </header>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
   </article>
 
 
-
     
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/06/08/book/" itemprop="url">
-              
-                <span itemprop="name">正在看的书籍(更新中)</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-06-08T10:19:08+08:00"
-              content="2016-06-08" >
-          06-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/06/07/swim/" itemprop="url">
-              
-                <span itemprop="name">终于学会了自由泳</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-06-07T22:51:57+08:00"
-              content="2016-06-07" >
-          06-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/06/07/test/" itemprop="url">
-              
-                <span itemprop="name">test</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-06-07T16:17:32+08:00"
-              content="2016-06-07" >
-          06-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/06/07/dangzhang/" itemprop="url">
-              
-                <span itemprop="name">中国共产党章程(十八大)</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-06-07T16:05:48+08:00"
-              content="2016-06-07" >
-          06-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/06/06/basic-operation/" itemprop="url">
-              
-                <span itemprop="name">一些数据结构的基本操作</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-06-06T16:13:33+08:00"
-              content="2016-06-06" >
-          06-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/06/06/algorithm-summary/" itemprop="url">
-              
-                <span itemprop="name">解算法题的常用方法</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-06-06T09:24:43+08:00"
-              content="2016-06-06" >
-          06-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/06/05/multi-hop-ssh/" itemprop="url">
-              
-                <span itemprop="name">multi-hop ssh</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-06-05T21:29:50+08:00"
-              content="2016-06-05" >
-          06-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/06/03/sort/" itemprop="url">
-              
-                <span itemprop="name">排序算法</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-06-03T18:53:02+08:00"
-              content="2016-06-03" >
-          06-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2016/06/page/2/">2</a><a class="extend next" rel="next" href="/archives/2016/06/page/2/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
   </nav>
-
 
 
 
@@ -793,12 +625,6 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
-
 
   
 
