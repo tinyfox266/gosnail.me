@@ -240,6 +240,255 @@
             
               
                 
+                <a class="post-title-link" href="/2016/06/15/python-concept/" itemprop="url">
+                  python中的概念
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-06-15T10:10:48+08:00" content="2016-06-15">
+              2016-06-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/tech/" itemprop="url" rel="index">
+                    <span itemprop="name">tech</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="slice"><a href="#slice" class="headerlink" title="slice"></a>slice</h1><p>在python中，list(“[1,2,3]”)和str(“123”)提供了slice的功能。可以随意取出这些数据结构中的一段数据。</p>
+<p>slice的语法为l[start:end:step],其中l表示一个list或者str,<br>start和end表示你要取出的子串的开始下标和截止下标的下一个。step表示取元素的步长,其缺省值为1。。当step&gt;0时，start和end的缺省值分别为0,<br>len(l)。当step &lt; 0时，start的缺省值分别为len(l)-1, end的缺省值不知道是什么，但是它会使得第一个元素也包含在结果列表中。</p>
+<p>如</p>
+<ul>
+<li>l[1:6]表示取下标为1…5的子串</li>
+<li>l[1:6:2]表示取下标分别为1,1+2,1+2+2的元素</li>
+<li>l[6:1:-2]表示取下标为6, 6-2, 6-2-2的元素</li>
+<li>l[::-1]表示原值的逆序</li>
+</ul>
+<p>可以将slice看做下面的函数,不妨设l为list<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">slice</span><span class="params">(l, start, end, step)</span>:</span></span><br><span class="line">    res = []</span><br><span class="line">    i = start</span><br><span class="line">    <span class="keyword">while</span> i &lt; end:</span><br><span class="line">        res.append(l[i])</span><br><span class="line">        i += step</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure></p>
+<h1 id="list-comprehesion"><a href="#list-comprehesion" class="headerlink" title="list comprehesion"></a>list comprehesion</h1><p>list comprehesion通常用来初始化list。它的语法是 <code>[expr for iter_var in iterable]</code>, <code>[expr for iter_var in iterable if cond_expr]</code>。</p>
+<p>如<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">l = [i*i for i in range(1,5)] // l = [1,4,9,16], 即1...4中的平方数</span><br><span class="line"></span><br><span class="line">l = [i*i for i in range(1,5) if i%2==0] // l = [4,9], 即1...4中偶数的平方数</span><br></pre></td></tr></table></figure></p>
+<p>可以把<code>[expr for iter_var in iterable if cond_expr]</code>看做下面的函数<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">list_comprehesion</span><span class="params">(lambda iter_var:expr, iter_var, iterable, lambda iter_var:cond_expr)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> map(<span class="keyword">lambda</span> iter_var: expr, filter(<span class="keyword">lambda</span> iter_var:cond_expr, iterable))</span><br></pre></td></tr></table></figure></p>
+<h1 id="generator"><a href="#generator" class="headerlink" title="generator"></a>generator</h1><h1 id="yield"><a href="#yield" class="headerlink" title="yield"></a>yield</h1><p>详见<a href="http://pyzh.readthedocs.io/en/latest/the-python-yield-keyword-explained.html" target="_blank" rel="external">3.  (译)Python关键字yield的解释(stackoverflow)</a></p>
+<h1 id="变长参数-实参或形参前加上-或"><a href="#变长参数-实参或形参前加上-或" class="headerlink" title="变长参数(实参或形参前加上*或**)"></a>变长参数(实参或形参前加上*或**)</h1><p>在函数定义时使用，详见<a href="http://blog.csdn.net/delphiwcdj/article/details/5746560" target="_blank" rel="external">Python在函数中使用<em>和*</em>接收元组和列表</a></p>
+<p>在函数调用时使用，详见<a href="http://www.cnblogs.com/frydsh/archive/2012/07/10/2585370.html" target="_blank" rel="external">Python的zip函数</a></p>
+<h1 id="decorator"><a href="#decorator" class="headerlink" title="decorator"></a>decorator</h1><p>详见<a href="http://coolshell.cn/articles/11265.html" target="_blank" rel="external">Python修饰器的函数式编程</a></p>
+<p>大致是说，代码<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@decorator</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure></p>
+<p>会被解释器翻译为<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">func = decorator(func)</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/06/13/caiyuan2/" itemprop="url">
+                  我家的菜园（续）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-06-13T17:07:58+08:00" content="2016-06-13">
+              2016-06-13
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/life/" itemprop="url" rel="index">
+                    <span itemprop="name">life</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <img src="http://o8fn8ge1e.bkt.clouddn.com/static/images/caiyuan11.jpg">
+<img src="http://o8fn8ge1e.bkt.clouddn.com/static/images/caiyuan12.jpg">
+<img src="http://o8fn8ge1e.bkt.clouddn.com/static/images/caiyuan13.jpg">
+<img src="http://o8fn8ge1e.bkt.clouddn.com/static/images/caiyuan14.jpg">
+<img src="http://o8fn8ge1e.bkt.clouddn.com/static/images/caiyuan15.jpg">
+<img src="http://o8fn8ge1e.bkt.clouddn.com/static/images/caiyuan16.jpg">
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/06/13/note-reborn/" itemprop="url">
                   《新生》读书笔记
                 </a>
@@ -660,6 +909,33 @@
 <li>当手臂划到腰部时，转头换气</li>
 <li>换气时，不要抬头，只是转头  </li>
 <li>当左臂抬出水面后，右臂开始向后划水</li>
+</ul>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a href="http://www.topswim.net/thread-38295-1-1.html" target="_blank" rel="external">“转动”的力量</a></p>
+<hr>
+<p>update:</p>
+<p>2016-6-14</p>
+<ul>
+<li>划臂时，先将水抱到胸前。然后，在腰间开始向后推水，这时，手掌向后</li>
+<li>腰部要绷紧。打腿时，从胯部开始发力。转身时，从胯部开始发力</li>
+<li>开始推水时，转身，换气</li>
+</ul>
+<p>2016-6-20 </p>
+<ul>
+<li>采用两次腿时要注意:<ul>
+<li>先打腿，然后再开始划水。</li>
+<li>每次打腿过程中，只有打腿的那条腿动，并快速回弹。保持平直。</li>
+</ul>
+</li>
+<li>有点划船的感觉，两条手臂是船桨。在滑桨时，身体保持平直。</li>
+</ul>
+<p>2016-6-21</p>
+<ul>
+<li>在转身的同时打腿，由打腿给予转身支撑力</li>
+<li>在水下呼气的时候，嘴里类似于发“呜~~“的声音。这样，在呼气的时候会挤压腹部，从而让胸腔排出更多的废气。</li>
+</ul>
+<p>2016-6-29</p>
+<ul>
+<li>像一个木桩一样在水中翻转</li>
 </ul>
 
           
@@ -1204,20 +1480,88 @@
 <li><a href="https://leetcode.com/problems/same-tree/" target="_blank" rel="external">100. Same Tree</a><br>  先看两棵子树的左子树和右子树是否分别相等，是的话，再看两棵树的根的值是否相等，是的话，两棵树相等。否则，不相等。</li>
 <li><a href="https://leetcode.com/problems/product-of-array-except-self/" target="_blank" rel="external">238. Product of Array Except Self</a><br>  先求出前n-1个元素的结果,不妨记为res，然后将结果中的每个元素乘以第n个元素。得到了前n-1个元素的最终结果。第n个元素的结果为res[n-1]乘以第n-1个数。</li>
 <li><a href="https://leetcode.com/problems/reverse-linked-list/" target="_blank" rel="external">206. Reverse Linked List</a><br>  先将前后n-1个元素的list逆序,得到的结果记为resList，然后把第1个元素连接到resList的末尾。注意要记录逆序后的list的表头和表尾。</li>
+<li><a href="https://leetcode.com/problems/odd-even-linked-list/" target="_blank" rel="external">328. Odd Even Linked List</a><br>  先将后n-2个元素的list按照要求重新排列，再将前两个元素插入到该list中</li>
+<li><a href="https://leetcode.com/problems/house-robber-iii/" target="_blank" rel="external">337. House Robber III</a><br>  先求两课子树分别在抢根结点和不抢根结点情况下的最大获益。原树的最大获益分为两种情况：1) 抢劫根结点，获益为两棵子树在不抢根结点情况下的最大获益。2) 不抢劫根结点，获益为两棵子树获益的最大和。取两种情况下的最大值。</li>
+<li><a href="https://leetcode.com/problems/climbing-stairs/" target="_blank" rel="external">70. Climbing Stairs</a><br>  走n步到达终点的方法数为，走1步然后再走n-1步的方法数，加上走2步然后再走n-2步的方法数.</li>
+<li><a href="https://leetcode.com/problems/gray-code/" target="_blank" rel="external">89. Gray Code</a><br>  n位的格雷码按照以下方法由n-1位的格雷码构造：<ul>
+<li>前一半的格雷码为n-1位的格雷码最高位添加0</li>
+<li>后一半的格雷码为n-1位的格雷码逆序后，最高位添加1</li>
+</ul>
+</li>
+<li><a href="https://leetcode.com/problems/maximum-subarray/" target="_blank" rel="external">53. Maximum Subarray</a><br>  先把原问题加强，求以第i个元素结尾的子序列的最大和。假设以第i-1个元素结尾的子序列的最大和为s(i-1), 那么以第i个元素结尾的子序列的最大和分两种情况:1) 如果s(i-1) &lt; 0, 则为第i个元素 2) 否则，为s(i-1)加上第i个元素的值。</li>
+<li><a href="https://leetcode.com/problems/unique-paths/" target="_blank" rel="external">62. Unique Paths</a><br>  从坐标(i,j)到达(m,n)的方法数为从(i+1,j)到(m,n)的方法数加上从(i,j+1)到(m,n)的方法数。这里问题的规模为表格的大小。</li>
+<li><a href="https://leetcode.com/problems/combination-sum-iii/" target="_blank" rel="external">216. Combination Sum III</a><br>  这里问题的规模可以认为是可选数值的个数。求和为n的k个数，有两种方案 1) 取可选数值的第1个数(不妨设为s)，然后从剩下的数中选取k-1数使其和n-s； 2) 不选可选数值的第1个数，然后从剩下的数中选取k个数使其和为n。</li>
+<li><a href="https://leetcode.com/problems/permutations/" target="_blank" rel="external">46. Permutations</a><br>  先确定排列中第一位的数值，然后再拼接上剩下元素的排列即可。</li>
+<li><a href="https://leetcode.com/problems/binary-tree-postorder-traversal/" target="_blank" rel="external">145. Binary Tree Postorder Traversal</a><br>  先遍历左右子树，再遍历根结点。</li>
+<li><a href="https://leetcode.com/problems/swap-nodes-in-pairs/" target="_blank" rel="external">24. Swap Nodes in Pairs</a><br>  先将后n-2个结点完成交换，再把前两个结点交换后，插入到链头</li>
+<li><a href="https://leetcode.com/problems/minimum-path-sum/" target="_blank" rel="external">64. Minimum Path Sum</a><br>  从坐标(i,j)到达(m,n)的最短路径为从(i+1,j)到(m,n)的最短路径与从(i,j+1)到(m,n)的最短路径中的最小值，再加上自己的权值。这里问题的规模为表格的大小。</li>
+<li><a href="https://leetcode.com/problems/super-ugly-number/" target="_blank" rel="external">313. Super Ugly Number</a><br>  先得到前n-1个ugly number, 第n个ugly number是前n-1个ugly number分别乘以各个素数值中的最小值。</li>
+<li><a href="https://leetcode.com/problems/sort-colors/" target="_blank" rel="external">75. Sort Colors</a><br>  先将前n-1个元素调整好顺序，同时记录调整后的序列中第一个不是0的位置i和第一个不是2的位置j:<ul>
+<li>假如第n个数是0，则按照如下方法调整序列， 将位置i的值放到位置j，将位置j的元素放到位置n, 最后将位置n的值放到位置i.  i和j都加1</li>
+<li>假如第n个数是1，则按照如下方法调整序列， 将位置j的元素放到位置n, 最后将位置n的值放到位置j. j加1</li>
+<li>假如第n个数是2，不调整</li>
+</ul>
+</li>
+<li><a href="https://leetcode.com/problems/binary-tree-level-order-traversal-ii/" target="_blank" rel="external">107. Binary Tree Level Order Traversal II</a><br> 先计算出左子树和右子树的层序遍历结果。然后将之合并。然后将根结点加入。注意，左子树和右子树返回的结果中，第一个元素为最后一层，最后一个元素为其根。</li>
+<li><a href="https://leetcode.com/problems/balanced-binary-tree/" target="_blank" rel="external">110. Balanced Binary Tree</a><br> 当前树为平衡树，要满足以下几点：1) 左右子树均为平衡树 2) 左右子树的高度差至多为1. 所以， 要计算每棵子树的高度。</li>
+<li><a href="https://leetcode.com/problems/symmetric-tree/" target="_blank" rel="external">101. Symmetric Tree</a><br>  将原问题加强为判断两棵树是否对称。两棵树t1和t2要对称需要满足：1) t1和t2的根结点的值相等，2) t1的左子树和t2的右子树对称，t1的右子树和t2的左子树对称</li>
+<li><a href="https://leetcode.com/problems/pascals-triangle/" target="_blank" rel="external">118. Pascal’s Triangle</a><br> 第n行的Pascal三角由第n-1行构造。构造方式如下：<code>P[n][i]=P[n-1][i-1]+P[n-1][i]</code>, 其中，<code>0&lt;i&lt;n</code></li>
+<li><a href="https://leetcode.com/problems/binary-tree-level-order-traversal/" target="_blank" rel="external">102. Binary Tree Level Order Traversal</a><br> 先计算出左子树和右子树的层序遍历结果。然后将之合并。然后将根结点加入。注意，左子树和右子树返回的结果中，第一个元素为根，最后一个元素为最后一层。</li>
+<li><a href="https://leetcode.com/problems/sum-root-to-leaf-numbers/" target="_blank" rel="external">129. Sum Root to Leaf Numbers</a><br> 将问题转化为求树中所有root到leaf的路径</li>
+<li><a href="https://leetcode.com/problems/pascals-triangle-ii/" target="_blank" rel="external">119. Pascal’s Triangle II</a><br> 与<a href="https://leetcode.com/problems/pascals-triangle/" target="_blank" rel="external">118. Pascal’s Triangle</a> 类似，可以从第k行的值得到第k+1行的值。</li>
 </ul>
 <h2 id="1-n-1"><a href="#1-n-1" class="headerlink" title="1 + (n-1)"></a>1 + (n-1)</h2><p>先从原问题中排除掉一个元素，然后求解剩下n-1个元素问题的解。最后，再构造原问题的解。使用这种方法的典型算法为<strong>bubble sort</strong> 。</p>
 <p>这里缩减问题规模的方式，很特殊，是找到一个特殊的元素，将其减去。</p>
+<p>使用这种方法的典型算法为贪心算法。通常，尾递归算法可以归为这一类。</p>
+<p>还有一种情况，可以归为这一类。就是，根据第一个元素，分情况讨论。</p>
+<h3 id="贪心算法"><a href="#贪心算法" class="headerlink" title="贪心算法"></a>贪心算法</h3><p>贪心算法通常选择最值为要去除的那个元素。</p>
 <p>leetcode题库中，能使用该方法解决的题有:</p>
+<h3 id="根据第一个元素，分情况讨论："><a href="#根据第一个元素，分情况讨论：" class="headerlink" title="根据第一个元素，分情况讨论："></a>根据第一个元素，分情况讨论：</h3><p>leetcode题库中，能使用该方法解决的题有:</p>
 <ul>
-<li><a href="https://leetcode.com/problems/delete-node-in-a-linked-list/" target="_blank" rel="external">237. Delete Node in a Linked List</a><br>先看第一个结点，如果它是要删除的结点，删除之，否则从剩下的链表中删除指定结点。</li>
+<li><a href="https://leetcode.com/problems/house-robber/" target="_blank" rel="external">198. House Robber</a><br>  如果抢第一家，则只能抢第二家之后的n-2家。如果，不抢第一家，则可以抢第一家之后的n-1家，选择这两种情况的最大值即可。</li>
+<li><a href="https://leetcode.com/problems/combinations/" target="_blank" rel="external">77. Combinations</a><br>  如果选取第一个元素，则从剩下的n-1个元素中选k-1个就可以了。如果不选取第一个元素，则从剩下的n-1个元素选择k个元素。</li>
+</ul>
+<h3 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h3><p>leetcode题库中，能使用该方法解决的题有:</p>
+<ul>
+<li><a href="https://leetcode.com/problems/delete-node-in-a-linked-list/" target="_blank" rel="external">237. Delete Node in a Linked List</a></li>
+<li><a href="https://leetcode.com/problems/number-of-1-bits/" target="_blank" rel="external">191. Number of 1 Bits</a><br>先看第一个结点，如果它是要删除的结点，删除之，否则从剩下的链表中删除指定结点。</li>
+<li><a href="https://leetcode.com/problems/spiral-matrix-ii/" target="_blank" rel="external">59. Spiral Matrix II</a><br>把spiral的圈数作为问题的规模。可以，先求解最外圈的数值，然后递归求解剩下的矩阵。</li>
+<li><a href="https://leetcode.com/problems/rotate-image/" target="_blank" rel="external">48. Rotate Image</a><br>把矩阵的圈数作为问题的规模。可以，先旋转最外层，再递归求解剩下的矩阵。</li>
 </ul>
 <h2 id="n-2-n-2"><a href="#n-2-n-2" class="headerlink" title="(n/2) + (n/2)"></a>(n/2) + (n/2)</h2><p>先分别求解前n/2个元素和后n/2个元素问题的解, 然后再构造原问题的解。使用这种方法的典型算法为 <strong>merge sort</strong> 。</p>
 <p>leetcode题库中，能使用该方法解决的题有:</p>
 <ul>
 <li><a href="https://leetcode.com/problems/counting-bits/" target="_blank" rel="external">338. Counting Bits</a><br>  分别求每个数m的二进制表示中1的个数。<br>  这里把输入m看作是n个bit的list。分别计算前n/2和后n/2个bit中1的个数，然后将两者相加即可。</li>
 </ul>
+<h2 id="1-n-1-2-n-2-…-n-1-1"><a href="#1-n-1-2-n-2-…-n-1-1" class="headerlink" title="1+(n-1), 2+(n-2), …, (n-1)+1"></a>1+(n-1), 2+(n-2), …, (n-1)+1</h2><p>先将原问题分别分为1+(n-1),…,(n-1)+1这几种情况，然后根据问题描述综合得到原问题的解。其实，这里的基本想法还是分治</p>
+<p>leetcode题库中，能使用该方法解决的题有:</p>
+<ul>
+<li><a href="https://leetcode.com/problems/unique-binary-search-trees/" target="_blank" rel="external">96. Unique Binary Search Trees</a><br> 规模为n的树的形态数，为其左右子树结点数分别为(0,n-1),…,(n-1,0)时树的形态数的和。</li>
+<li><a href="https://leetcode.com/problems/generate-parentheses/" target="_blank" rel="external">22. Generate Parentheses</a><br> n对括号，可以由以下方式构成：<ul>
+<li>i对括号连接n-i对括号，其中 1&lt;=i&lt;=n</li>
+<li>n-1对括号的外层加一对括号</li>
+</ul>
+</li>
+<li><a href="https://leetcode.com/problems/burst-balloons/" target="_blank" rel="external">312. Burst Balloons</a><br>把这道题归在这里，其实不是很合适。因为，想到分割原问题的方式是很难的。</li>
+<li><a href="https://leetcode.com/problems/different-ways-to-add-parentheses/" target="_blank" rel="external">241. Different Ways to Add Parentheses</a><br>这里的规模n为字符串中含的符号数。然后，分别从每个符号的位置将原字符串一分为二，递归求解即可。</li>
+</ul>
+<h2 id="forall-k-lt-n-–-gt-n"><a href="#forall-k-lt-n-–-gt-n" class="headerlink" title="forall k &lt; n –&gt; n"></a>forall k &lt; n –&gt; n</h2><p>leetcode题库中，能使用该方法解决的题有:</p>
+<ul>
+<li><a href="https://leetcode.com/problems/longest-increasing-subsequence/" target="_blank" rel="external">300. Longest Increasing Subsequence</a><br>  可以先将问题加强为，求以第n个元素结尾的最长上升子序列。它是前n-1个元素中比第n个元素小的元素，其最长上升子序列，中的最大值加1.</li>
+<li><a href="https://leetcode.com/problems/largest-divisible-subset/" target="_blank" rel="external">368. Largest Divisible Subset</a><br>  先将原数组排序。然后，这个问题可以采用类似<a href="https://leetcode.com/problems/longest-increasing-subsequence/" target="_blank" rel="external">300. Longest Increasing Subsequence</a> 办法来求解。<ul>
+<li>将原问题加强为求以第n个元素结尾的最大集合。</li>
+<li>以第n个元素结尾的集合是由以第i个元素(i&lt;n)结尾的最大集合扩充而来，需要满足，第n个元素是第i个元素的倍数。这里用到了一个性质，就是所求集合中最后一个元素最大，且其它元素能被最大元素整除。</li>
+</ul>
+</li>
+</ul>
 <h1 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h1><p>二分查找其实是<code>(n/2)+(n/2)</code>问题的一种特例。因为数据的有序性质，而使得原问题的解直接归结为前一半问题或后一半问题的解。从而消除了回溯。</p>
 <p>leetcode题库中，能使用该方法解决的题有:</p>
+<ul>
+<li><a href="https://leetcode.com/problems/search-insert-position/" target="_blank" rel="external">35. Search Insert Position</a></li>
+<li><a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/" target="_blank" rel="external">235. Lowest Common Ancestor of a Binary Search Tree</a></li>
+<li><a href="https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/" target="_blank" rel="external">153. Find Minimum in Rotated Sorted Array</a></li>
+<li><a href="https://leetcode.com/problems/valid-perfect-square/" target="_blank" rel="external">367. Valid Perfect Square</a><br>由于解空间有限且有序，故可用二分查找。</li>
+</ul>
 <h1 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h1><p>遍历是把问题的求解过程变成了判断过程。当解空间有限时，我们可以枚举解空间的任意一个值，再判断该值是否为原问题的解。常见的遍历(枚举)方法为 <em>深度优先</em> 和 <em>广度优先</em> ,以避免枚举过程中的重复问题。针对线性的数据结构， <em>线性遍历遍历</em> 就可以了。</p>
 <h2 id="线性遍历"><a href="#线性遍历" class="headerlink" title="线性遍历"></a>线性遍历</h2><p>leetcode题库中，能使用该方法解决的题有:</p>
 <ul>
@@ -1230,8 +1574,37 @@
 <li><a href="https://leetcode.com/problems/contains-duplicate/" target="_blank" rel="external">217. Contains Duplicate</a></li>
 <li><a href="https://leetcode.com/problems/missing-number/" target="_blank" rel="external">268. Missing Number</a></li>
 <li><a href="https://leetcode.com/problems/maximum-product-of-word-lengths/" target="_blank" rel="external">318. Maximum Product of Word Lengths</a></li>
+<li><a href="https://leetcode.com/problems/power-of-three/" target="_blank" rel="external">326. Power of Three</a><br>检查是否存在一个k, 使得3^k=n</li>
+<li><a href="https://leetcode.com/problems/remove-duplicates-from-sorted-list/" target="_blank" rel="external">83. Remove Duplicates from Sorted List</a>  </li>
+<li><a href="https://leetcode.com/problems/linked-list-cycle/" target="_blank" rel="external">141. Linked List Cycle</a></li>
+<li><a href="https://leetcode.com/problems/game-of-life/" target="_blank" rel="external">289. Game of Life</a></li>
+<li><a href="https://leetcode.com/problems/remove-element/" target="_blank" rel="external">Remove Element</a></li>
+<li><a href="https://leetcode.com/problems/remove-duplicates-from-sorted-array/" target="_blank" rel="external">26. Remove Duplicates from Sorted Array</a></li>
+<li><a href="https://leetcode.com/problems/set-matrix-zeroes/" target="_blank" rel="external">73. Set Matrix Zeroes</a><br> 可以用第0行和第0列来记录被置为0的行和列</li>
 </ul>
-<h2 id="深度优先"><a href="#深度优先" class="headerlink" title="深度优先"></a>深度优先</h2><h2 id="广度优先"><a href="#广度优先" class="headerlink" title="广度优先"></a>广度优先</h2><h1 id="回溯-backtrace"><a href="#回溯-backtrace" class="headerlink" title="回溯(backtrace)"></a>回溯(backtrace)</h1><p>有时，我们无需将解空间全部遍历一遍。当我们知道解空间中的一个值不是原问题的解时，我们可以知道其它的一些值也一定不是解。这时候，就用到了回溯。比方说，解空间的值为 <strong>*(a1,…,an)</strong> , 当 <strong>ai</strong> 等于某值(不妨设为 <strong>v</strong> )时, 对于任意的 <strong>a(i+1) … an</strong> , <strong>(v1, …,v(i-1), v, a(i+1), … ,an)</strong> 都不是原问题的解，则无需再遍历这些解。回溯的策略是，依次遍历 <strong>ai</strong> 的值。 将遍历解空间的值变为了遍历解空间中各个维度的值。一个典型算法为 <strong>八皇后问题</strong> 。 回溯可以看作是带剪枝的遍历。</p>
+<h2 id="深度优先"><a href="#深度优先" class="headerlink" title="深度优先"></a>深度优先</h2><h3 id="先序遍历"><a href="#先序遍历" class="headerlink" title="先序遍历"></a>先序遍历</h3><p>leetcode题库中，能使用该方法解决的题有:</p>
+<ul>
+<li><a href="https://leetcode.com/problems/kth-smallest-element-in-a-bst/" target="_blank" rel="external">230. Kth Smallest Element in a BST</a></li>
+<li><a href="https://leetcode.com/problems/binary-search-tree-iterator/" target="_blank" rel="external">173. Binary Search Tree Iterator</a><h3 id="中序遍历"><a href="#中序遍历" class="headerlink" title="中序遍历"></a>中序遍历</h3><h3 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h3></li>
+</ul>
+<h2 id="广度优先"><a href="#广度优先" class="headerlink" title="广度优先"></a>广度优先</h2><p>树的层序遍历，图中寻找最短路径多使用广度优先。</p>
+<p>树的层序遍历要注意如何判断一层的元素已经全被遍历完了。有两种方法：</p>
+<ul>
+<li>记录一层的元素个数，该数值为上一层元素的孩子数。 在开始遍历一层的时候，已经遍历了几个元素。当遍历的个数达到该层的元素个数时，该层遍历结束。</li>
+<li>设置一个queue，只保存当前正在遍历的层的所有元素。当该queue中所有元素被遍历完时，该层就被遍历完了。</li>
+</ul>
+<p>当所有问题为求最短路径时，可以试着使用广度优先。</p>
+<p>leetcode题库中，能使用该方法解决的题有:</p>
+<ul>
+<li><a href="https://leetcode.com/problems/populating-next-right-pointers-in-each-node/" target="_blank" rel="external">116. Populating Next Right Pointers in Each Node</a></li>
+<li><a href="https://leetcode.com/problems/binary-tree-right-side-view/" target="_blank" rel="external">199. Binary Tree Right Side View</a></li>
+<li><p><a href="https://leetcode.com/problems/perfect-squares/" target="_blank" rel="external">279. Perfect Squares</a><br> 搜索树为</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">  1           4          9 ....</span><br><span class="line">1 4 9 ...   1 4 9 ...  1 4 9 ...</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><a href="https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/" target="_blank" rel="external">117. Populating Next Right Pointers in Each Node II</a>   </p>
+</li>
+</ul>
+<h1 id="回溯-backtrace"><a href="#回溯-backtrace" class="headerlink" title="回溯(backtrace)"></a>回溯(backtrace)</h1><p>有时，我们无需将解空间全部遍历一遍。当我们知道解空间中的一个值不是原问题的解时，我们可以知道其它的一些值也一定不是解。这时候，就用到了回溯。比方说，解空间的值为 <strong>*(a1,…,an)</strong> , 当 <strong>ai</strong> 等于某值(不妨设为 <strong>v</strong> )时, 对于任意的 <strong>a(i+1) … an</strong> , <strong>(v1, …,v(i-1), v, a(i+1), … ,an)</strong> 都不是原问题的解，则无需再遍历这些解。回溯的策略是，依次遍历 <strong>ai</strong> 的值。 将遍历解空间的值变为了遍历解空间中各个维度的值。一个典型算法为 <strong>八皇后问题</strong> 。 回溯可以看作是带剪枝的遍历。</p>
 <p>leetcode题库中，能使用该方法解决的题有:</p>
 <ul>
 <li><a href="https://leetcode.com/problems/n-queens-ii/" target="_blank" rel="external">52. N-Queens II</a><br> 依次确定第i行的皇后的位置。当第i的某个位置不能放皇后时，第i行后的其它行也不必遍历了。</li>
@@ -1240,12 +1613,20 @@
 <p>leetcode题库中，能使用该方法解决的题有:</p>
 <ul>
 <li><a href="https://leetcode.com/problems/counting-bits/" target="_blank" rel="external">338. Counting Bits</a></li>
+<li><a href="https://leetcode.com/problems/unique-binary-search-trees/" target="_blank" rel="external">96. Unique Binary Search Trees</a></li>
+<li><a href="https://leetcode.com/problems/climbing-stairs/" target="_blank" rel="external">70. Climbing Stairs</a></li>
 </ul>
 <h1 id="一些特殊方法"><a href="#一些特殊方法" class="headerlink" title="一些特殊方法"></a>一些特殊方法</h1><p>使用上述的方法，通常能找到一个多项式时间的算法。但是，如果希望得到更低时间复杂度的算法，就需要进行一些细致的观察了。利用原有数据中的一些特殊性质。在这里列出的方法一般没法直接拿来用。就直接当作题库吧。遇到过就会，没有遇到过，还是算了吧。</p>
 <h2 id="Two-Pointers"><a href="#Two-Pointers" class="headerlink" title="Two Pointers"></a>Two Pointers</h2><p>该方法缩减问题规模的方式可以从前后两个方向开始缩减。到底从哪边缩减，因具体情况而定。该方法常用于有序数组上的一些问题。使用这个办法的典型算法为 <strong>quick sort</strong> 中的 <strong>partition</strong>。如果原问题本身有一种前后的对称性，也可以考虑使用该办法。</p>
 <p>leetcode题库中，能使用该方法解决的题有:</p>
 <ul>
 <li><a href="https://leetcode.com/problems/reverse-string/" target="_blank" rel="external">344 Reverse String</a><br>基于这样的观察：将字符串反转，是先将首尾两个字母调换，然后剩下的字符串翻转。</li>
+<li><a href="https://leetcode.com/problems/reverse-vowels-of-a-string/" target="_blank" rel="external">345. Reverse Vowels of a String</a><br>算法和上一道题一致。</li>
+<li><a href="https://leetcode.com/problems/sort-colors/" target="_blank" rel="external">75. Sort Colors</a><br>从两头开始遍历数组，左侧保证全是0，右侧保证全是1和2，且所有的1都在2的前面。</li>
+</ul>
+<h2 id="Partition"><a href="#Partition" class="headerlink" title="Partition"></a>Partition</h2><p>leetcode题库中，能使用该方法解决的题有:</p>
+<ul>
+<li><a href="https://leetcode.com/problems/kth-largest-element-in-an-array/" target="_blank" rel="external">215. Kth Largest Element in an Array</a></li>
 </ul>
 <h2 id="位运算"><a href="#位运算" class="headerlink" title="位运算"></a>位运算</h2><p>这种题，千变万化，目前没有找到规律。</p>
 <p>leetcode题库中，能使用该方法解决的题有:</p>
@@ -1253,6 +1634,10 @@
 <li><a href="https://leetcode.com/problems/counting-bits/" target="_blank" rel="external">338. Counting Bits</a></li>
 <li><a href="https://leetcode.com/problems/single-number/" target="_blank" rel="external">136. Single Number</a></li>
 <li><a href="https://leetcode.com/problems/single-number-iii/" target="_blank" rel="external">260. Single Number III</a></li>
+<li><a href="https://leetcode.com/problems/single-number-ii/" target="_blank" rel="external">137. Single Number II</a></li>
+<li><a href="https://leetcode.com/problems/number-of-1-bits/" target="_blank" rel="external">191. Number of 1 Bits</a></li>
+<li><a href="https://leetcode.com/problems/power-of-two/" target="_blank" rel="external">231. Power of Two</a><br>low bit</li>
+<li><a href="https://leetcode.com/problems/power-of-four/" target="_blank" rel="external">342. Power of Four</a><br>一个数是4的幂次，则它的二进制表示中只有一位为1，且这个1在奇数位上。</li>
 </ul>
 <h2 id="其它的一些技巧"><a href="#其它的一些技巧" class="headerlink" title="其它的一些技巧"></a>其它的一些技巧</h2><p>记录某个字母c出现的次数，可以用数组来存储。num[ord(c)-ord(‘a’)]记录c出现的次数。如果知道要遍历的数值的范围，也可以这么做。</p>
 <ul>
@@ -1272,19 +1657,34 @@
 <li><a href="https://leetcode.com/problems/find-the-duplicate-number/" target="_blank" rel="external">287. Find the Duplicate Number</a><br>  和操作系统中存储页的freelist方式相似。</li>
 </ul>
 <p>关于数组的问题，看看先排序后，是否能有更好的算法。</p>
-<h1 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h1><p>有一些习题的算法无法用上面的办法想到，或者有一些习题的一些算法无法用上面的办法想到。这里列出了这些习题。</p>
+<p>加入一个int类型变量的取值范围为0或者1，那么可以使用该变量除了最低位的其它位来存储别的值。</p>
+<ul>
+<li><a href="https://leetcode.com/problems/game-of-life/" target="_blank" rel="external">289. Game of Life</a></li>
+</ul>
+<h1 id="其它-1"><a href="#其它-1" class="headerlink" title="其它"></a>其它</h1><p>有一些习题的算法无法用上面的办法想到，或者有一些习题的一些算法无法用上面的办法想到。这里列出了这些习题。</p>
 <h2 id="math"><a href="#math" class="headerlink" title="math"></a>math</h2><ul>
 <li><a href="https://leetcode.com/problems/add-digits/" target="_blank" rel="external">258. Add Digits</a></li>
 <li><a href="https://leetcode.com/problems/excel-sheet-column-number/" target="_blank" rel="external">171. Excel Sheet Column Number</a><br>将26进制数转化为10进制数。</li>
+<li><a href="https://leetcode.com/problems/ugly-number/" target="_blank" rel="external">263. Ugly Number</a></li>
+<li><a href="https://leetcode.com/problems/happy-number/" target="_blank" rel="external">202. Happy Number</a></li>
+<li><a href="https://leetcode.com/problems/power-of-four/" target="_blank" rel="external">342. Power of Four</a><br>一个数是4的幂次，则它的二进制表示中只有一位为1，且这个1在奇数位上。</li>
+<li><a href="https://leetcode.com/problems/factorial-trailing-zeroes/" target="_blank" rel="external">172. Factorial Trailing Zeroes</a><br> 乘积末尾中0的个数，取决于乘数中5及5的幂次的个数。</li>
 </ul>
 <h2 id="天才的想法"><a href="#天才的想法" class="headerlink" title="天才的想法"></a>天才的想法</h2><p>天才的想法总来自于那灵光一闪的一刻。我们很难探究这些想法的来源。只要安静地欣赏就好了。</p>
-<h3 id="投票"><a href="#投票" class="headerlink" title="投票"></a>投票</h3><ul>
-<li><a href="https://leetcode.com/problems/majority-element/" target="_blank" rel="external">169. Majority Element</a></li>
+<h3 id="投票"><a href="#投票" class="headerlink" title="投票"></a>投票</h3><p>It is proposed in “A fast majority vote algorithm”[^vote].<br>It is proved formally in “Experiences with software specification and verification using LP, the Larch proof assistant”[^voteproof]</p>
+<ul>
+<li><a href="https://leetcode.com/problems/majority-element/" target="_blank" rel="external">169. Majority Element</a><h3 id="寻找环"><a href="#寻找环" class="headerlink" title="寻找环"></a>寻找环</h3>It is proposed by Floyd.</li>
 </ul>
-<h3 id="寻找环"><a href="#寻找环" class="headerlink" title="寻找环"></a>寻找环</h3><ul>
+<ul>
+<li><a href="https://leetcode.com/problems/linked-list-cycle/" target="_blank" rel="external">141. Linked List Cycle</a></li>
+<li><a href="https://leetcode.com/problems/linked-list-cycle-ii/" target="_blank" rel="external">142. Linked List Cycle II</a></li>
 <li><a href="https://leetcode.com/problems/find-the-duplicate-number/" target="_blank" rel="external">287. Find the Duplicate Number</a>  </li>
 </ul>
-<h2 id="其它-1"><a href="#其它-1" class="headerlink" title="其它"></a>其它</h2><ul>
+<h2 id="其它-2"><a href="#其它-2" class="headerlink" title="其它"></a>其它</h2><h3 id="简单题"><a href="#简单题" class="headerlink" title="简单题"></a>简单题</h3><ul>
+<li><a href="https://leetcode.com/problems/plus-one/" target="_blank" rel="external">66. Plus One</a></li>
+<li><a href="https://leetcode.com/problems/peeking-iterator/" target="_blank" rel="external">284. Peeking Iterator</a><br>将peek()返回的值缓存起来。</li>
+</ul>
+<h3 id="其它-3"><a href="#其它-3" class="headerlink" title="其它"></a>其它</h3><ul>
 <li><a href="https://leetcode.com/problems/nim-game/" target="_blank" rel="external">Nim Game</a></li>
 <li><a href="https://leetcode.com/problems/product-of-array-except-self/" target="_blank" rel="external">238. Product of Array Except Self</a></li>
 <li><a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/" target="_blank" rel="external">122. Best Time to Buy and Sell Stock II</a></li>
@@ -1293,8 +1693,25 @@
 <li><a href="https://leetcode.com/problems/binary-tree-inorder-traversal/" target="_blank" rel="external">94. Binary Tree Inorder Traversal</a></li>
 <li><a href="https://leetcode.com/problems/roman-to-integer/" target="_blank" rel="external">13. Roman to Integer</a></li>
 <li><a href="https://leetcode.com/problems/integer-to-roman/" target="_blank" rel="external">12. Integer to Roman</a></li>
-<li></li>
+<li><a href="https://leetcode.com/problems/burst-balloons/" target="_blank" rel="external">312. Burst Balloons</a><br>解这道题，用了一个巧妙的想法，就是从最后一个爆炸的气球开始考虑。具体分析见<a href="https://leetcode.com/discuss/72216/share-some-analysis-and-explanations" target="_blank" rel="external">Share some analysis and explanations</a><br>据说，这种逆向思考，是在dp问题中的常见想法。</li>
+<li><a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/" target="_blank" rel="external">121. Best Time to Buy and Sell Stock</a><br>可以赚到所有的利润，即所有当天价格比前一天价格高的价格差。  </li>
+<li><a href="https://leetcode.com/problems/merge-two-sorted-lists/" target="_blank" rel="external">21. Merge Two Sorted Lists</a>  </li>
+<li><a href="https://leetcode.com/problems/binary-tree-postorder-traversal/" target="_blank" rel="external">145. Binary Tree Postorder Traversal</a><br>非递归算法</li>
+<li><a href="https://leetcode.com/problems/merge-two-sorted-lists/" target="_blank" rel="external">21. Merge Two Sorted Lists</a><br>采用merge_sort中merge的想法即可。</li>
+<li><a href="https://leetcode.com/problems/data-stream-as-disjoint-intervals/" target="_blank" rel="external">352. Data Stream as Disjoint Intervals</a>  </li>
+<li><a href="https://leetcode.com/problems/super-ugly-number/" target="_blank" rel="external">313. Super Ugly Number</a><br>  这道题的一个精巧解法是利用了merge的想法。</li>
+<li><a href="https://leetcode.com/problems/container-with-most-water/" target="_blank" rel="external">11. Container With Most Water</a><br>  虽然，这道题可以使用Two pointer的办法解决，但是怎么能够想到使用Two pointer的办法，以及如何使用，却不清楚。</li>
+<li><a href="https://leetcode.com/problems/search-a-2d-matrix-ii/" target="_blank" rel="external">240. Search a 2D Matrix II</a>    </li>
+<li><a href="https://leetcode.com/problems/longest-increasing-subsequence/" target="_blank" rel="external">300. Longest Increasing Subsequence</a><br>  这个算法的nlg(n)解法, 不知道怎么想出来的。</li>
+<li><a href="https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/" target="_blank" rel="external">154. Find Minimum in Rotated Sorted Array II</a><br> 这个题，不好直接用二分法求解。</li>
+<li><a href="https://leetcode.com/problems/increasing-triplet-subsequence/" target="_blank" rel="external">334. Increasing Triple Subsequence</a><br>  想想，在遍历前n-1个元素时收集到什么的信息时，就可以判断加了第n个元素是否有解。</li>
+<li><a href="https://leetcode.com/problems/search-a-2d-matrix/" target="_blank" rel="external">74. Search a 2D Matrix</a>    </li>
+<li><a href="https://leetcode.com/problems/implement-queue-using-stacks/" target="_blank" rel="external">232. Implement Queue using Stacks</a><br>用两个堆栈来模拟队列。</li>
+<li><a href="https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/" target="_blank" rel="external">80. Remove Duplicates from Sorted Array II</a><br>使得一个排好序的数组中，一个元素至多只重复一次，则只需要检查p[n]和p[n-2]是否相等。</li>
+<li><a href="https://leetcode.com/problems/find-peak-element/" target="_blank" rel="external">162. Find Peak Element</a><br>虽然，该方法的框架为二分查找，但是更重要的是要发现一个性质：peak总是在数值在增加的一侧。而且，根据的题目的限制(num[i] != nums[i+1]及num[-1]和num[n]均为负无穷)，一定存在一个peak。</li>
 </ul>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p>[^vote]: Robert S. Boyer and J. Strother Moore. MJRTY: A fast majority vote algorithm. In Automated Reasoning: Essays in Honor of Woody Bledsoe, pages 105–118. Kluwer, 1991.</p>
+<p>[^voteproof]: Manfred Broy. Experiences with software specification and verification using LP, the Larch proof assistant. Formal Methods in System Design, 8(3):221–272, 1996.</p>
 
           
         
@@ -1445,246 +1862,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/03/sort/" itemprop="url">
-                  排序算法
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-06-03T18:53:02+08:00" content="2016-06-03">
-              2016-06-03
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">algorithm</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Merge-Sort"><a href="#Merge-Sort" class="headerlink" title="Merge Sort"></a>Merge Sort</h1><p>Merge sort是典型的分治算法, 直接将原问题分为前一半和后一半。要使用分治算法，原问题必须能够分解为规模相当，且能够独立求解的两个子问题。Merge sort的算法框架可以套用在其它的分治算法上，只要把<strong>merge</strong>函数重写即可。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge_sort</span><span class="params">(nums)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> merge_sort_helper(nums, <span class="number">0</span>, len(nums)<span class="number">-1</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge_sort_helper</span><span class="params">(nums, start, end)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> start == end:</span><br><span class="line">        <span class="keyword">return</span> [nums[start]]</span><br><span class="line">        </span><br><span class="line">    mid = start + (end-start)/<span class="number">2</span></span><br><span class="line">    res1 = merge_sort_helper(nums, start, mid)</span><br><span class="line">    res2 = merge_sort_helper(nums, mid+<span class="number">1</span>, end)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> merge(res1, res2)</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge</span><span class="params">(nums1, nums2)</span>:</span></span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    j = <span class="number">0</span></span><br><span class="line">    res = []</span><br><span class="line">    <span class="keyword">while</span> i &lt; len(nums1) <span class="keyword">and</span> j &lt; len(nums2):</span><br><span class="line">        <span class="keyword">if</span> nums1[i] &lt;= nums2[j]:</span><br><span class="line">            res.append(nums1[i])</span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            res.append(nums2[j])</span><br><span class="line">            j += <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> i &lt; len(nums1):</span><br><span class="line">        res.append(nums1[i])</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> j &lt; len(nums2):</span><br><span class="line">        res.append(nums2[j])</span><br><span class="line">        j += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
-<p>Merge sort中的<strong>merge</strong>的办法可以应用到很多问题中。如</p>
-<ul>
-<li><a href="https://leetcode.com/problems/merge-two-sorted-lists/" target="_blank" rel="external">Merge Two Sorted Lists</a></li>
-<li><a href="https://leetcode.com/problems/merge-k-sorted-lists/" target="_blank" rel="external">Merge k Sorted Lists</a></li>
-</ul>
-<p>也是就是说，合并两个有序的线性结构，可以使用该merge算法。那如果是两个有序的二叉树呢(如 二分查找树)？可以这么来做。先通过该merge算法得到一个排好序的数组(时间复杂度为O(m+n))，然后再由该有序数组生成二分查找树(时间复杂度为O(m+n))。其中，m和n分别为两棵树的节点数。当然了，如果该二分查找树的表示方式为数组的话，那直接merge就完成了。</p>
-<h1 id="Quick-Sort"><a href="#Quick-Sort" class="headerlink" title="Quick Sort"></a>Quick Sort</h1><p>Quick Sort也是分治算法。只是它分割子问题的方式相对巧妙一些。相比于merge sort,它不是直接将原数组分为前一半和后一半，而是随机选取一个元素，将原数组分为比这个元素大的一半和不比这个元素大的一半。它的好处是，把两个子问题的结果直接合并就是原问题的解。</p>
-<p>我们还可以换一个角度来看这个排序的过程。当你把原数组分割好的时候，其实你也找到了那个分割元素在数组中的位置。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">quick_sort</span><span class="params">(nums)</span>:</span></span><br><span class="line">    quick_sort_helper(nums, <span class="number">0</span>, len(nums)<span class="number">-1</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">quick_sort_helper</span><span class="params">(nums, start, end)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> start &lt; end:</span><br><span class="line">        r = partition(nums, start, end)</span><br><span class="line">        quick_sort_helper(nums, start, r<span class="number">-1</span>)</span><br><span class="line">        quick_sort_helper(nums, r+<span class="number">1</span>, end)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">partition</span><span class="params">(nums, start, end)</span>:</span></span><br><span class="line">    pivot = nums[end]</span><br><span class="line">    i = start</span><br><span class="line">    j = end</span><br><span class="line">    <span class="keyword">while</span> i &lt; j:</span><br><span class="line">        <span class="keyword">while</span>  i&lt;j <span class="keyword">and</span> nums[i] &lt;= pivot:</span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> i&lt;j <span class="keyword">and</span> nums[j] &gt;= pivot:</span><br><span class="line">            j -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> i &lt; j:</span><br><span class="line">            nums[i], nums[j] = nums[j], nums[i]</span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">            j -= <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    tmp = nums[i]</span><br><span class="line">    nums[i] = nums[end]</span><br><span class="line">    nums[end] = tmp</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> i</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/03/安装hexo/" itemprop="url">
-                  安装hexo
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-06-03T15:26:31+08:00" content="2016-06-03">
-              2016-06-03
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h1><ul>
-<li><a href="https://hexo.io/docs/index.html" target="_blank" rel="external">installation from hexo.io document</a></li>
-<li><a href="https://hexo.io/docs/setup.html" target="_blank" rel="external">setup from hexo.io document</a></li>
-</ul>
-<h1 id="安装和使用中碰到的问题"><a href="#安装和使用中碰到的问题" class="headerlink" title="安装和使用中碰到的问题"></a>安装和使用中碰到的问题</h1><h2 id="没有hexo-server命令"><a href="#没有hexo-server命令" class="headerlink" title="没有hexo server命令"></a>没有hexo server命令</h2><p>原因是hexo-server模块作为一个独立的模块，需要单独安装</p>
-<pre><code>npm install hexo-server --save
-</code></pre><p>详见<a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server section of hexo.io document</a></p>
-<h2 id="运行Hexo-server命令后，访问4000端口出现cannot-get"><a href="#运行Hexo-server命令后，访问4000端口出现cannot-get" class="headerlink" title="运行Hexo server命令后，访问4000端口出现cannot get?"></a>运行Hexo server命令后，访问4000端口出现cannot get?</h2><p>查看public目录，发现没有index文件</p>
-<pre><code>ls /blog/public/
-</code></pre><p>原因是hexo有些依赖的模块没有安装，从而没有正确的生成网站。完成安装即可。<br>在你的blog目录下运行</p>
-<pre><code>npm install
-</code></pre><p>详见<a href="http://www.zhihu.com/question/35964327" target="_blank" rel="external">Hexo本地安装 都是默认的文件 命令运行了 访问4000端口出现cannot get?</a></p>
-<h2 id="hexo的next主题显示德语"><a href="#hexo的next主题显示德语" class="headerlink" title="hexo的next主题显示德语"></a>hexo的next主题显示德语</h2><p>原因不明。将blog/themes/next/languages/de.yml删除了，这样会显示默认语言，也就是英文。</p>
-<h1 id="hexo的主题"><a href="#hexo的主题" class="headerlink" title="hexo的主题"></a>hexo的主题</h1><h2 id="next"><a href="#next" class="headerlink" title="next"></a>next</h2><ul>
-<li><a href="http://theme-next.iissnan.com/" target="_blank" rel="external">介绍</a></li>
-<li><a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">安装</a></li>
-<li>一些配置<ul>
-<li><a href="http://theme-next.iissnan.com/theme-settings.html#tags-page" target="_blank" rel="external">添加「标签」页面</a></li>
-<li><a href="http://theme-next.iissnan.com/theme-settings.html#categories-page" target="_blank" rel="external">添加「分类」页面</a></li>
-<li><a href="http://theme-next.iissnan.com/third-party-services.html#local-search" target="_blank" rel="external">Local Search</a></li>
-<li><a href="http://theme-next.iissnan.com/third-party-services.html#mathjax" target="_blank" rel="external">MathJax</a></li>
-</ul>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1730,7 +1907,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">13</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
@@ -1747,7 +1924,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -1765,6 +1942,24 @@
         
 
         
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.csdn.net/dog250" title="dog250" target="_blank">dog250</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://mindhacks.cn/" title="刘未鹏" target="_blank">刘未鹏</a>
+                </li>
+              
+            </ul>
+          </div>
         
 
       </section>
