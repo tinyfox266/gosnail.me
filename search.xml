@@ -4,6 +4,15 @@
   
     
     <entry>
+      <title><![CDATA[一些算法和题目的精彩讲解]]></title>
+      <url>http://gosnail.me/2016/07/15/explanation-some-algorithm/</url>
+      <content type="html"><![CDATA[<ul>
+<li><a href="https://briangordon.github.io/2014/08/the-skyline-problem.html" target="_blank" rel="external">The skyline problem</a></li>
+</ul>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[python中的概念]]></title>
       <url>http://gosnail.me/2016/06/15/python-concept/</url>
       <content type="html"><![CDATA[<h1 id="slice"><a href="#slice" class="headerlink" title="slice"></a>slice</h1><p>在python中，list(“[1,2,3]”)和str(“123”)提供了slice的功能。可以随意取出这些数据结构中的一段数据。</p>
@@ -108,7 +117,43 @@
 </ul>
 <p>2016-6-29</p>
 <ul>
-<li>像一个木桩一样在水中翻转</li>
+<li>像一根木头一样在水中翻转</li>
+</ul>
+<p>2016-6-30</p>
+<ul>
+<li>身体的旋转，是游泳的节拍器。<ul>
+<li>手臂可以完全用力，而让腰带动手臂，完成划水</li>
+<li>身体带动手臂运动的感觉，就像是打棒球挥棒的动作。</li>
+<li>当要增加游速时，首先要增加的是身体的转动速度</li>
+<li>通过身体转动，完全可以在手臂和腿部不怎么用力的情况下，让身体前行。虽然，走得比较慢。</li>
+</ul>
+</li>
+<li>呼吸时，头部几乎不转动，它只是随着身体旋转而将口露在水面。</li>
+<li>在开始划臂时，肘部抬高，差不多和肩膀一样高。并且手臂尽量前伸。</li>
+<li>腿部打水几乎不用力，只是为了保持身体的平衡。</li>
+</ul>
+<p>2016-7-3</p>
+<ul>
+<li>换气时，尽量张大嘴</li>
+<li>划臂时，另一只手臂，尽量向前伸</li>
+<li>换气时，感觉好像头枕着另一侧的手臂 </li>
+<li><a href="http://blog.sina.com.cn/s/blog_4b0f87b601011wdc.html" target="_blank" rel="external">全浸式自由泳教学法的核心理念和几个特点</a><br> 一篇很有意思的文章，他讲全浸式游泳不是一种泳姿，而是一种训练游泳的方法，提倡游泳时的忘我状态。<br>2016-7-4  </li>
+<li>两次腿的感觉：<ul>
+<li>换气的一侧，打腿、转身和划臂同时进行，以使转身或者更大动力</li>
+<li>另一侧，先打腿，再划臂，以使身体前进时腿是直的。</li>
+</ul>
+</li>
+<li>第一次测试了100米，用了4分10秒。 </li>
+</ul>
+<p>2016-7-12</p>
+<ul>
+<li>加快速度的办法，不是增加转身的频率，而是增加转身的速度，为了增加转身的速度，你需要增加打腿的力度。</li>
+<li>在换气时，向后看。</li>
+</ul>
+<p>2016-7-25</p>
+<ul>
+<li>开始抱水时，从身体的中线开始，能明显感觉到手臂受到的阻力</li>
+<li>当打完腿后，身体开始旋转时，顺势抱水，能明显感觉到水的阻力，但是手臂借用身体躯干的力量，不会感觉到很累。</li>
 </ul>
 ]]></content>
     </entry>
@@ -403,11 +448,6 @@
 <h2 id="forall-k-lt-n-–-gt-n"><a href="#forall-k-lt-n-–-gt-n" class="headerlink" title="forall k &lt; n –&gt; n"></a>forall k &lt; n –&gt; n</h2><p>leetcode题库中，能使用该方法解决的题有:</p>
 <ul>
 <li><a href="https://leetcode.com/problems/longest-increasing-subsequence/" target="_blank" rel="external">300. Longest Increasing Subsequence</a><br>  可以先将问题加强为，求以第n个元素结尾的最长上升子序列。它是前n-1个元素中比第n个元素小的元素，其最长上升子序列，中的最大值加1.</li>
-<li><a href="https://leetcode.com/problems/largest-divisible-subset/" target="_blank" rel="external">368. Largest Divisible Subset</a><br>  先将原数组排序。然后，这个问题可以采用类似<a href="https://leetcode.com/problems/longest-increasing-subsequence/" target="_blank" rel="external">300. Longest Increasing Subsequence</a> 办法来求解。<ul>
-<li>将原问题加强为求以第n个元素结尾的最大集合。</li>
-<li>以第n个元素结尾的集合是由以第i个元素(i&lt;n)结尾的最大集合扩充而来，需要满足，第n个元素是第i个元素的倍数。这里用到了一个性质，就是所求集合中最后一个元素最大，且其它元素能被最大元素整除。</li>
-</ul>
-</li>
 </ul>
 <h1 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h1><p>二分查找其实是<code>(n/2)+(n/2)</code>问题的一种特例。因为数据的有序性质，而使得原问题的解直接归结为前一半问题或后一半问题的解。从而消除了回溯。</p>
 <p>leetcode题库中，能使用该方法解决的题有:</p>
@@ -415,7 +455,6 @@
 <li><a href="https://leetcode.com/problems/search-insert-position/" target="_blank" rel="external">35. Search Insert Position</a></li>
 <li><a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/" target="_blank" rel="external">235. Lowest Common Ancestor of a Binary Search Tree</a></li>
 <li><a href="https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/" target="_blank" rel="external">153. Find Minimum in Rotated Sorted Array</a></li>
-<li><a href="https://leetcode.com/problems/valid-perfect-square/" target="_blank" rel="external">367. Valid Perfect Square</a><br>由于解空间有限且有序，故可用二分查找。</li>
 </ul>
 <h1 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h1><p>遍历是把问题的求解过程变成了判断过程。当解空间有限时，我们可以枚举解空间的任意一个值，再判断该值是否为原问题的解。常见的遍历(枚举)方法为 <em>深度优先</em> 和 <em>广度优先</em> ,以避免枚举过程中的重复问题。针对线性的数据结构， <em>线性遍历遍历</em> 就可以了。</p>
 <h2 id="线性遍历"><a href="#线性遍历" class="headerlink" title="线性遍历"></a>线性遍历</h2><p>leetcode题库中，能使用该方法解决的题有:</p>
@@ -564,7 +603,22 @@
 <li><a href="https://leetcode.com/problems/implement-queue-using-stacks/" target="_blank" rel="external">232. Implement Queue using Stacks</a><br>用两个堆栈来模拟队列。</li>
 <li><a href="https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/" target="_blank" rel="external">80. Remove Duplicates from Sorted Array II</a><br>使得一个排好序的数组中，一个元素至多只重复一次，则只需要检查p[n]和p[n-2]是否相等。</li>
 <li><a href="https://leetcode.com/problems/find-peak-element/" target="_blank" rel="external">162. Find Peak Element</a><br>虽然，该方法的框架为二分查找，但是更重要的是要发现一个性质：peak总是在数值在增加的一侧。而且，根据的题目的限制(num[i] != nums[i+1]及num[-1]和num[n]均为负无穷)，一定存在一个peak。</li>
+<li><a href="https://leetcode.com/problems/find-k-pairs-with-smallest-sums/" target="_blank" rel="external">373. Find K Pairs with Smallest Sums</a><br>一个最直接的方法是直接排序。但是这个算法并没有利用输入是有序的这个性质。根据有序性质，我们可以把两个有序数组的pair组成一棵树（更确切的是一个图，其实是一个格）。在树中，祖先结点的和总是比后代结点的和小。从而，我们可以使用广度优先算法来遍历。</li>
+<li><a href="https://leetcode.com/problems/remove-duplicate-letters/" target="_blank" rel="external">316. Remove Duplicate Letters</a><br>这道题虽然被标记为了贪心算法，而且其中的一个解法确实也符合贪心算法的框架。可是，我采用贪心算法的想法，怎么也没想出一个算法来。那个贪心算法，基于以下观察：<ul>
+<li>假设s[i:]是包含所有字母的最短后缀,即s[i]是s[i:]中的唯一字母，c是s[0:i]中的最小字母，则c的最终位置一定在[0,i)中，且其它字母的最终位置一定在[i,n)中。</li>
+<li>更通俗的讲，一个字母c选择的位置要满足:<ul>
+<li>c前面的字母z都要比c小，除非z在c后面没有出现过。所谓贪心的过程，就是选择满足这个条件的第一个元素。</li>
 </ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>update:</p>
+<p>2016-7-13 </p>
+<p>随着做的题越来越多，越来越发现，想找几种通用的pattern来帮助你更快地解题，变得越来越困难。比方说，我总觉得首先寻找分割子问题的方式，可能是着手解题的一个好的开始。可是，越来越多的题表明，这么做并没有什么用。在正文中<strong>其他</strong>条目中，题目的不断增加，便越来越说明了这一点。</p>
+<p>或许，回归直觉，是一个好的办法。从一个给定输入出发，看看自己能够找到一个求解问题的办法。从中，看看能否发现一些规律，然后推广到别的输入。也就是，波利亚在《数学与猜想》中提到的，从特殊到一般。</p>
+<p>或者，换一个思路去思考问题。不是从问题本身的结构出发，而是从描述问题所使用的数据结构出发，或许有好的思路。比如说，输入是一个有序数组，输入是两个有序数组，会让你有更好地解决办法。总结一下，描述问题所用的数据结构可以利用的一些性质，或许有帮助。一个典型的题目是<a href="https://leetcode.com/problems/find-k-pairs-with-smallest-sums/" target="_blank" rel="external">Find K Pairs with Smallest Sums</a>，由两个有序数组的元素组成的pair可以构成一棵树，树的性质为如果m是n的祖先，则它们有序。然后，便容易有了这个题目的广度优先遍历算法。</p>
 <h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p>[^vote]: Robert S. Boyer and J. Strother Moore. MJRTY: A fast majority vote algorithm. In Automated Reasoning: Essays in Honor of Woody Bledsoe, pages 105–118. Kluwer, 1991.</p>
 <p>[^voteproof]: Manfred Broy. Experiences with software specification and verification using LP, the Larch proof assistant. Formal Methods in System Design, 8(3):221–272, 1996.</p>
 ]]></content>

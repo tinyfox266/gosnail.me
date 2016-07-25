@@ -240,6 +240,128 @@
             
               
                 
+                <a class="post-title-link" href="/2016/06/05/multi-hop-ssh/" itemprop="url">
+                  multi-hop ssh
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-06-05T21:29:50+08:00" content="2016-06-05">
+              2016-06-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/tech/" itemprop="url" rel="index">
+                    <span itemprop="name">tech</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>假如你希望借助于机器 <strong>broker</strong> 来访问机器 <strong>target</strong>, 可以在<code>~/.ssh/config</code>文件中添加如下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Host broker             # Machine B definition (the broker)</span><br><span class="line">    Hostname broker-ip  # Change this IP address to the address of the broker</span><br><span class="line">    User myusername     # Change this default user accordingly </span><br><span class="line">                        # (`user@unibroker` can overwrite it)</span><br><span class="line"></span><br><span class="line">Host target             # Machine A definition (the target host)</span><br><span class="line">    ProxyCommand ssh -q broker nc hostname.or.IP.address.target.machine 22</span><br></pre></td></tr></table></figure>
+<p>然后使用<code>ssh username@target</code>即可访问目标机器 <em>target</em></p>
+<p>当需要多级跳转时，在<code>~/.ssh/config</code>中添加如下内容即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Host ruapehu</span><br><span class="line">  HostName ruapehu.example.com</span><br><span class="line"></span><br><span class="line">Host aoraki</span><br><span class="line">  ProxyCommand ssh ruapehu nc aoraki 22</span><br><span class="line"></span><br><span class="line">Host tongariro</span><br><span class="line">  ProxyCommand ssh aoraki nc %h 22</span><br></pre></td></tr></table></figure>
+<p>当使用命令<code>ssh aoraki</code>时，你其实是经过如下路径访问到了 <strong>tongariro</strong>: <strong>ruapehu</strong> –&gt; <strong>aoraki</strong> –&gt; <strong>tongariro</strong></p>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><ul>
+<li><a href="http://ssg.ustcsz.edu.cn/~jhr/wordpress/" target="_blank" rel="external">multi-hop ssh</a></li>
+<li><a href="http://sshmenu.sourceforge.net/articles/transparent-mulithop.html" target="_blank" rel="external">Transparent Multi-hop SSH</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/06/03/sort/" itemprop="url">
                   排序算法
                 </a>
@@ -606,7 +728,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">13</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
