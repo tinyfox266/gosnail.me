@@ -5,7 +5,7 @@
     
     <entry>
       <title><![CDATA[信息论中的几个概念]]></title>
-      <url>http://gosnail.me/2016/11/17/information-theory/</url>
+      <url>http://gosnail.me/gosnail.me/2016/11/17/information-theory/</url>
       <content type="html"><![CDATA[<p>最近读了”Elements of Information Theory”中的第2、3章和第6、7章中的部分内容，特在此总结一下。</p>
 <h1 id="熵-Entropy"><a href="#熵-Entropy" class="headerlink" title="熵(Entropy)"></a>熵(Entropy)</h1><p>$$<br>H(X) = \sum p(x) log (\frac{1}{p(x)})<br>$$</p>
 <p>其中$X$为一个随机变量，$p(x)$为$X$取值为$x$的概率。</p>
@@ -78,7 +78,7 @@ p(y|x) = | 0.1 0.5 0.4 |
     
     <entry>
       <title><![CDATA[一些算法和题目的精彩讲解]]></title>
-      <url>http://gosnail.me/2016/07/15/explanation-some-algorithm/</url>
+      <url>http://gosnail.me/gosnail.me/2016/07/15/explanation-some-algorithm/</url>
       <content type="html"><![CDATA[<ul>
 <li><a href="https://briangordon.github.io/2014/08/the-skyline-problem.html" target="_blank" rel="external">The skyline problem</a></li>
 </ul>
@@ -87,7 +87,7 @@ p(y|x) = | 0.1 0.5 0.4 |
     
     <entry>
       <title><![CDATA[python中的概念]]></title>
-      <url>http://gosnail.me/2016/06/15/python-concept/</url>
+      <url>http://gosnail.me/gosnail.me/2016/06/15/python-concept/</url>
       <content type="html"><![CDATA[<h1 id="slice"><a href="#slice" class="headerlink" title="slice"></a>slice</h1><p>在python中，list(“[1,2,3]”)和str(“123”)提供了slice的功能。可以随意取出这些数据结构中的一段数据。</p>
 <p>slice的语法为l[start:end:step],其中l表示一个list或者str,<br>start和end表示你要取出的子串的开始下标和截止下标的下一个。step表示取元素的步长,其缺省值为1。。当step&gt;0时，start和end的缺省值分别为0,<br>len(l)。当step &lt; 0时，start的缺省值分别为len(l)-1, end的缺省值不知道是什么，但是它会使得第一个元素也包含在结果列表中。</p>
 <p>如</p>
@@ -112,7 +112,7 @@ p(y|x) = | 0.1 0.5 0.4 |
     
     <entry>
       <title><![CDATA[我家的菜园（续）]]></title>
-      <url>http://gosnail.me/2016/06/13/caiyuan2/</url>
+      <url>http://gosnail.me/gosnail.me/2016/06/13/caiyuan2/</url>
       <content type="html"><![CDATA[<img src="http://o8fn8ge1e.bkt.clouddn.com/static/images/caiyuan11.jpg">
 <img src="http://o8fn8ge1e.bkt.clouddn.com/static/images/caiyuan12.jpg">
 <img src="http://o8fn8ge1e.bkt.clouddn.com/static/images/caiyuan13.jpg">
@@ -124,14 +124,14 @@ p(y|x) = | 0.1 0.5 0.4 |
     
     <entry>
       <title><![CDATA[《新生》读书笔记]]></title>
-      <url>http://gosnail.me/2016/06/13/note-reborn/</url>
+      <url>http://gosnail.me/gosnail.me/2016/06/13/note-reborn/</url>
       <content type="html"><![CDATA[<p><a href="https://www.evernote.com/shard/s389/sh/4cc3ea73-3dcb-47aa-b540-4fce65108299/58292a736013a01a4c887c9dc5e9628c" target="_blank" rel="external">《新生》的笔记（作者: 李笑来）</a></p>
 ]]></content>
     </entry>
     
     <entry>
       <title><![CDATA[我家的菜园]]></title>
-      <url>http://gosnail.me/2016/06/08/caiyuan/</url>
+      <url>http://gosnail.me/gosnail.me/2016/06/08/caiyuan/</url>
       <content type="html"><![CDATA[<img src="http://o8fn8ge1e.bkt.clouddn.com/static/images/caiyuan1.jpg">
 <img src="http://o8fn8ge1e.bkt.clouddn.com/static/images/caiyuan2.jpg">
 <img src="http://o8fn8ge1e.bkt.clouddn.com/static/images/caiyuan3.jpg">
@@ -142,7 +142,7 @@ p(y|x) = | 0.1 0.5 0.4 |
     
     <entry>
       <title><![CDATA[正在看的书籍(更新中)]]></title>
-      <url>http://gosnail.me/2016/06/08/book/</url>
+      <url>http://gosnail.me/gosnail.me/2016/06/08/book/</url>
       <content type="html"><![CDATA[<h1 id="正在看的书"><a href="#正在看的书" class="headerlink" title="正在看的书"></a>正在看的书</h1><h1 id="看过的书"><a href="#看过的书" class="headerlink" title="看过的书"></a>看过的书</h1><ul>
 <li><a href="http://b.xinshengdaxue.com/index.html" target="_blank" rel="external">新生 七年就是一辈子 — 李笑来</a></li>
 <li>“Elements of Information Theory”部分章节</li>
@@ -152,7 +152,7 @@ p(y|x) = | 0.1 0.5 0.4 |
     
     <entry>
       <title><![CDATA[终于学会了自由泳]]></title>
-      <url>http://gosnail.me/2016/06/07/swim/</url>
+      <url>http://gosnail.me/gosnail.me/2016/06/07/swim/</url>
       <content type="html"><![CDATA[<p>今天，终于可以游20米了。换气也相对自然了些。从开始学习到现在，大概游了10次左右吧。每次都会有一些体会。正好可以回顾一下学的过程。</p>
 <ul>
 <li>打腿<br>从网上找了打腿的陆上动作练习练了一下，去游了两次，基本学会了。</li>
@@ -246,7 +246,7 @@ p(y|x) = | 0.1 0.5 0.4 |
     
     <entry>
       <title><![CDATA[中国共产党章程(十八大)]]></title>
-      <url>http://gosnail.me/2016/06/07/dangzhang/</url>
+      <url>http://gosnail.me/gosnail.me/2016/06/07/dangzhang/</url>
       <content type="html"><![CDATA[<h1 id="总纲"><a href="#总纲" class="headerlink" title="总纲"></a>总纲</h1><p>　中国共产党是中国工人阶级的先锋队，同时是中国人民和中华民族的先锋队，是中国特色社会主义事业的领导核心，代表中国先进生产力的发展要求，代表中国先进文化的前进方向，代表中国最广大人民的根本利益。党的最高理想和最终目标是实现共产主义。</p>
 <p>　　中国共产党以马克思列宁主义、毛泽东思想、邓小平理论、“三个代表”重要思想和科学发展观作为自己的行动指南。</p>
 <p>　　马克思列宁主义揭示了人类社会历史发展的规律，它的基本原理是正确的，具有强大的生命力。中国共产党人追求的共产主义最高理想，只有在社会主义社会充分发展和高度发达的基础上才能实现。社会主义制度的发展和完善是一个长期的历史过程。坚持马克思列宁主义的基本原理，走中国人民自愿选择的适合中国国情的道路，中国的社会主义事业必将取得最终的胜利。</p>
@@ -444,7 +444,7 @@ p(y|x) = | 0.1 0.5 0.4 |
     
     <entry>
       <title><![CDATA[一些数据结构的基本操作]]></title>
-      <url>http://gosnail.me/2016/06/06/basic-operation/</url>
+      <url>http://gosnail.me/gosnail.me/2016/06/06/basic-operation/</url>
       <content type="html"><![CDATA[<p>在实现一个具体算法时，除了整体的设计思路外，还需要对一些数据结构的基本操作熟记于心。这样才容易将心里的想法更快地变成代码。</p>
 <h1 id="链表-linked-list"><a href="#链表-linked-list" class="headerlink" title="链表(linked list)"></a>链表(linked list)</h1><h2 id="插入结点"><a href="#插入结点" class="headerlink" title="插入结点"></a>插入结点</h2><p>将newnode插入到cur结点之后<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">next = cur.next</span><br><span class="line">cur.next = newnode</span><br><span class="line">newnode.next = next</span><br></pre></td></tr></table></figure></p>
 <h2 id="删除节点"><a href="#删除节点" class="headerlink" title="删除节点"></a>删除节点</h2><p>删除cur结点之后的结点<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> cur.next != <span class="keyword">None</span>:</span><br><span class="line">    cur.next = cur.next.next</span><br></pre></td></tr></table></figure></p>
@@ -453,7 +453,7 @@ p(y|x) = | 0.1 0.5 0.4 |
     
     <entry>
       <title><![CDATA[解算法题的常用方法]]></title>
-      <url>http://gosnail.me/2016/06/06/algorithm-summary/</url>
+      <url>http://gosnail.me/gosnail.me/2016/06/06/algorithm-summary/</url>
       <content type="html"><![CDATA[<h1 id="常用的分解子问题的方式"><a href="#常用的分解子问题的方式" class="headerlink" title="常用的分解子问题的方式"></a>常用的分解子问题的方式</h1><h2 id="n-1-1"><a href="#n-1-1" class="headerlink" title="(n-1) + 1"></a>(n-1) + 1</h2><p>先得到前n-1个元素的问题的解，再构造新加一个元素后的解。使用这种办法的典型算法为<strong>insert sort</strong> 。<br>针对二叉树，就是先分别求在两棵子树上的解，然后再构造原树的解。</p>
 <p>这是一种从后向前，缩减问题规模的方式。</p>
 <p>leetcode题库中，能使用该方法解决的题有:</p>
@@ -712,7 +712,7 @@ p(y|x) = | 0.1 0.5 0.4 |
     
     <entry>
       <title><![CDATA[multi-hop ssh]]></title>
-      <url>http://gosnail.me/2016/06/05/multi-hop-ssh/</url>
+      <url>http://gosnail.me/gosnail.me/2016/06/05/multi-hop-ssh/</url>
       <content type="html"><![CDATA[<p>假如你希望借助于机器 <strong>broker</strong> 来访问机器 <strong>target</strong>, 可以在<code>~/.ssh/config</code>文件中添加如下内容</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Host broker             # Machine B definition (the broker)</span><br><span class="line">    Hostname broker-ip  # Change this IP address to the address of the broker</span><br><span class="line">    User myusername     # Change this default user accordingly </span><br><span class="line">                        # (`user@unibroker` can overwrite it)</span><br><span class="line"></span><br><span class="line">Host target             # Machine A definition (the target host)</span><br><span class="line">    ProxyCommand ssh -q broker nc hostname.or.IP.address.target.machine 22</span><br></pre></td></tr></table></figure>
 <p>然后使用<code>ssh username@target</code>即可访问目标机器 <em>target</em></p>
@@ -728,7 +728,7 @@ p(y|x) = | 0.1 0.5 0.4 |
     
     <entry>
       <title><![CDATA[排序算法]]></title>
-      <url>http://gosnail.me/2016/06/03/sort/</url>
+      <url>http://gosnail.me/gosnail.me/2016/06/03/sort/</url>
       <content type="html"><![CDATA[<h1 id="Merge-Sort"><a href="#Merge-Sort" class="headerlink" title="Merge Sort"></a>Merge Sort</h1><p>Merge sort是典型的分治算法, 直接将原问题分为前一半和后一半。要使用分治算法，原问题必须能够分解为规模相当，且能够独立求解的两个子问题。Merge sort的算法框架可以套用在其它的分治算法上，只要把<strong>merge</strong>函数重写即可。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge_sort</span><span class="params">(nums)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> merge_sort_helper(nums, <span class="number">0</span>, len(nums)<span class="number">-1</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge_sort_helper</span><span class="params">(nums, start, end)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> start == end:</span><br><span class="line">        <span class="keyword">return</span> [nums[start]]</span><br><span class="line">        </span><br><span class="line">    mid = start + (end-start)/<span class="number">2</span></span><br><span class="line">    res1 = merge_sort_helper(nums, start, mid)</span><br><span class="line">    res2 = merge_sort_helper(nums, mid+<span class="number">1</span>, end)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> merge(res1, res2)</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge</span><span class="params">(nums1, nums2)</span>:</span></span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    j = <span class="number">0</span></span><br><span class="line">    res = []</span><br><span class="line">    <span class="keyword">while</span> i &lt; len(nums1) <span class="keyword">and</span> j &lt; len(nums2):</span><br><span class="line">        <span class="keyword">if</span> nums1[i] &lt;= nums2[j]:</span><br><span class="line">            res.append(nums1[i])</span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            res.append(nums2[j])</span><br><span class="line">            j += <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> i &lt; len(nums1):</span><br><span class="line">        res.append(nums1[i])</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> j &lt; len(nums2):</span><br><span class="line">        res.append(nums2[j])</span><br><span class="line">        j += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
 <p>Merge sort中的<strong>merge</strong>的办法可以应用到很多问题中。如</p>
@@ -745,7 +745,7 @@ p(y|x) = | 0.1 0.5 0.4 |
     
     <entry>
       <title><![CDATA[安装hexo]]></title>
-      <url>http://gosnail.me/2016/06/03/%E5%AE%89%E8%A3%85hexo/</url>
+      <url>http://gosnail.me/gosnail.me/2016/06/03/%E5%AE%89%E8%A3%85hexo/</url>
       <content type="html"><![CDATA[<h1 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h1><ul>
 <li><a href="https://hexo.io/docs/index.html" target="_blank" rel="external">installation from hexo.io document</a></li>
 <li><a href="https://hexo.io/docs/setup.html" target="_blank" rel="external">setup from hexo.io document</a></li>
@@ -775,7 +775,7 @@ p(y|x) = | 0.1 0.5 0.4 |
     
     <entry>
       <title><![CDATA[Hello World]]></title>
-      <url>http://gosnail.me/2016/06/03/hello-world/</url>
+      <url>http://gosnail.me/gosnail.me/2016/06/03/hello-world/</url>
       <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
