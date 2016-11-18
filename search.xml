@@ -4,6 +4,79 @@
   
     
     <entry>
+      <title><![CDATA[信息论中的几个概念]]></title>
+      <url>http://gosnail.me/2016/11/17/information-theory/</url>
+      <content type="html"><![CDATA[<p>最近读了”Elements of Information Theory”中的第2、3章和第6、7章中的部分内容，特在此总结一下。</p>
+<h1 id="熵-Entropy"><a href="#熵-Entropy" class="headerlink" title="熵(Entropy)"></a>熵(Entropy)</h1><p>$$<br>H(X) = \sum p(x) log (\frac{1}{p(x)})<br>$$</p>
+<p>其中$X$为一个随机变量，$p(x)$为$X$取值为$x$的概率。</p>
+<p>我们假设$Y$是一个随机变量，且$Y$的取值范围为$log(\frac{1}{p(X)})$，$Y$取值为 $log{\frac{1}{p(x)}}$的概率为$p(x)$。则$H(X)$可以看做是$Y$的期望。即</p>
+<p>$$<br>H(X) = E(Y)<br>$$</p>
+<p>我们先不讨论熵的具体含义和性质，我们先来看一个例子，看看一个实际的问题是如何和熵这个概念联系起来的。</p>
+<h2 id="信号的平均编码长度"><a href="#信号的平均编码长度" class="headerlink" title="信号的平均编码长度"></a>信号的平均编码长度</h2><p>我们假设一个信号源是以固定的概率分布来产生信号的，不妨用随机变量$X$来代表这个信号源，其概率分布为$p(X)$。 然后信号要经过编码以后才能被发送出去。所以通信过程被抽象成了下面的过程。</p>
+<center> <pre> 信号源  —&gt; 编码器 —&gt; 传输 —&gt; 解码器 —&gt; 接受者。 </pre> </center>
+
+<p>那么每个信号源产生的信号需要多少个bit来表示呢？一般来讲，信号的种类越多，它需要的编码位就越多。比如，信号种类只有两种，那么需要1个bit就够了。如果信号种类为4种，那估计就要用2个bit了。因为$n$个bit最多可以编码$2^n$种信号。那照这种想法的话，信号种类为$m$的信号源就采用$\lceil log(m) \rceil$个bit来编码每个信号就可以了啊。这当然是对的，不过在实际编码的过程中，发现给出现次数更多的信号以更短的编码长度，可以获得更短的平均编码长度。比如，使用Morse码来编码英文字母和数字(共36种信号)的电报，每个字符的平均编码长度是低于$log(36)$(5.17bits)的。</p>
+<p>那到底一个信号可以被编码的最短平均长度为多少呢？Shannon老爷爷给出了答案,那就是$H(X)$,也就是随机变量X的熵。</p>
+<p>无法理解Shannon爷爷是如何想到那个证明办法的。我能做的，只能是把它的证明过程简述出来。</p>
+<p>假设信号源连续产生了n个信号，x1,…,xn，它可以被看做是n个随机变量X1,…,Xn产生的序列。序列的概率分布为这n个随机变量的联合概率分布。 然后再假设每个信号的产生与别的信号没有关系，则X1,…,Xn为服从概率分布p(X)的独立随机变量。所以，x1,…,xn出现的概率为p(x1) * … * p(xn)。</p>
+<p>Shannon爷爷把长度为n的信号序列x1,..,xn分为了两类:</p>
+<ul>
+<li>$A^{(n)}_{\epsilon}$: 出现概率介于$2^{-n(H(X)+\epsilon)}$和$2^{-n(H(X)-\epsilon)}$的序列</li>
+<li>${A^{(n)}_{\epsilon}}^c$: 不属于上述集合的序列</li>
+</ul>
+<p>$A^{(n)}_{\epsilon}$被称作 <strong>Typical Set</strong>。</p>
+<p>属于集合$A_{\epsilon}^{(n)}$的元素个数$|A_{\epsilon}^{(n)}|$不超过$2^{n(H(X)+\epsilon)}$，否则属于该集合的序列出现的概率会超过1。 所以，$A^{(n)}_{\epsilon}$中的元素可以用$n(H(X)+\epsilon)$个bit进行编码。也就是说，序列中的每个信号的平均编码长度为$H(X)+\epsilon$。</p>
+<p>接下来，我们要证明的是，当$n \rightarrow \infty$时，几乎所有的序列x1,…,xn都属于$A^{(n)}_{\epsilon}$。即</p>
+<p>$lim_{n-&gt;\infty} p((x_1,\dots,x_n) \notin A^{(n)}_{\epsilon}) = 0$</p>
+<p>也就是对于任意小的正实数$\delta$, 总存在一个N,使得</p>
+<p>$p((x_1,\dots,x_N) \notin A^{(n)}_{\epsilon}) &lt; \delta$</p>
+<p>我们假设Y1,…,Yn是n个随机变量，Yi的取值范围为$log(\frac{1}{p(Xi)})$。取值为$log(\frac{1}{p(xi)})$的概率为p(xi)。因为X1,…,Xn是独立随机变量，故Y1,…,Yn也是n个独立随机变量，且都遵循p(X)分布。</p>
+<p>根据大数定理，我们可以知道对于任意小的正实数$\epsilon$,</p>
+<p>$lim_{n-&gt;\infty} p(|\frac{1}{n}(\sum_i y_i) - E(Y)| &gt; \epsilon) = 0$</p>
+<p>即对于任意小的正实数$\delta$, 总存在一个N,使得<br>$p(|\frac{1}{N}(\sum_{0 \le i \le N} log(\frac{1}{p(x_i)})) - E(Y)| &gt; \epsilon) &lt; \delta$</p>
+<p>即<br>$p(|\frac{1}{N}(log(\prod_{1 \le i \le N} \frac{1}{p(x_i)})) - E(Y)| &gt; \epsilon) &lt; \delta$</p>
+<p>即<br>$p(|\frac{1}{N}(-log(p(x_1,\dots,x_N))) - E(Y)| &gt; \epsilon) &lt; \delta$</p>
+<p>注意E(Y)就是H(X),故$p((x_1,\dots,x_N) \notin A^{(n)}_{\epsilon}) &lt; \delta$。</p>
+<p>得证。</p>
+<p>所以，信号源X的平均编码长度可以达到该信号源的熵H(X)。而H(X)总是小于等于log(|X|)的 (H(X)的性质我们稍后再做介绍)。那它是不是最短的呢？Shannon爷爷的回答是肯定的。也就是说H(X)是信号源X能够达到的平均编码长度的下限。</p>
+<p>H(X)是编码长度下限的证明没有看懂，详见”Elements of Information Theory”的Section 3.3。</p>
+<h1 id="互信息-Mutual-Information"><a href="#互信息-Mutual-Information" class="headerlink" title="互信息(Mutual Information)"></a>互信息(Mutual Information)</h1><p>我们先定义两个概念，条件熵H(X|Y)和互信息I(X,Y)。</p>
+<p>$$<br>H(X|Y) = \sum p(y) \sum p(x|y) log (\frac{1}{p(x|y)})<br>$$</p>
+<p>$$<br>I(X|Y) = H(X) - H(X|Y)<br>$$</p>
+<p>其中, X,Y为两个随机变量，起满足的概率分布分别为p(X)和p(Y)。p(x|y)为条件概率。</p>
+<p>由联合概率的定义，可得<br>$$<br>H(X|Y) = \sum p(x,y) log (\frac{1}{p(x|y)})<br>$$</p>
+<p>我们还可以用另外一种方式来表达H(X|Y)<br>$$<br>H(X|Y) = \sum p(y) H(X|y) = E(H(X|y))<br>$$</p>
+<p>其中，H(X|y)为在确定了y以后X的熵。</p>
+<p>我们还是通过一个例子来说明I(X,Y)可以代表的含义。</p>
+<h2 id="信道容量-Channel-Capacity"><a href="#信道容量-Channel-Capacity" class="headerlink" title="信道容量(Channel Capacity)"></a>信道容量(Channel Capacity)</h2><p>这部分还是讲通信模型， 相比上一节的模型，我们假设通信过程会发生错误，比如发送了0,但是收到了1。基本通信模型不变:</p>
+<center> <pre> 信号源  —&gt; 编码器 —&gt; 传输 —&gt; 解码器 —&gt; 接受者。 </pre> </center>
+
+<p>只是，接受者收到的信号和信号源发送的信号可能不一致，原因是数据在传输过程中发生了错误。具体的通信过程可以被刻画为下图：</p>
+<img src="http://o8fn8ge1e.bkt.clouddn.com/static/images/CommunicationSystem.JPG">
+<p>其中，$W$是一个信号，$x^n$是一个长度为n的编码序列，p(y|x)是编码序列中的某个字符x在传输过程中变成y的概率， $y^n$是接收到的编码序列，$\hat{W}$是解码后的信号。</p>
+<p>传输过程中字符变化的概率分布p(Y|X)可以用一个矩阵来表示。</p>
+<p>下面，我们来讨论的问题是，是否存在一种编码方式，使得$\hat{W}$和$W$相同的概率趋近于1。</p>
+<p>我们只讨论信道是弱对称信道(Weakly Symmetric Channels)的情况。所谓弱对称信道，是指传输过程中字符变化的概率分布矩阵满足如下性质：它的每行都是其它行的置换(permutation)。通俗地讲，各个行包含的元素完全相同。</p>
+<p>比如</p>
+<pre><code>         | 0.3 0.2 0.5 |
+p(y|x) = | 0.2 0.5 0.3 |
+         | 0.5 0.3 0.2 |
+</code></pre><p>是弱对称的，因为各个行包含的元素完全相同，但是</p>
+<pre><code>         | 0.3 0.2 0.5 |
+p(y|x) = | 0.1 0.5 0.4 |
+         | 0.6 0.3 0.1 |
+</code></pre><p>不是。    </p>
+<p>满足弱对称的条件概率分布，会有如下性质：<br>$$<br>\forall x_1 x_2, H(Y|x_1) = H(Y|x_2)<br>$$</p>
+<p>所以H(Y|X) = H(Y|x),对于某个x。</p>
+<p>证明敲着太累了，决定放弃了。</p>
+<p>直接说一下结论吧，使得$\hat{W}$和$W$相同的概率趋近于1的编码方式要满足如下性质：</p>
+<p>$$<br>\frac{log M}{n} \le I(X,Y)<br>$$</p>
+<p>其中，M为信号W的种类数，n为平均编码长度，X是代表M的编码序列的随机变量，Y是代表接收到的编码序列的随机变量。</p>
+<p>而且，Shannon爷爷说，能找到一种编码方式使得上式的等号成立。I(X,Y)就变成了能达到的上限。</p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[一些算法和题目的精彩讲解]]></title>
       <url>http://gosnail.me/2016/07/15/explanation-some-algorithm/</url>
       <content type="html"><![CDATA[<ul>
@@ -70,10 +143,11 @@
     <entry>
       <title><![CDATA[正在看的书籍(更新中)]]></title>
       <url>http://gosnail.me/2016/06/08/book/</url>
-      <content type="html"><![CDATA[<h1 id="正在看的书"><a href="#正在看的书" class="headerlink" title="正在看的书"></a>正在看的书</h1><ul>
+      <content type="html"><![CDATA[<h1 id="正在看的书"><a href="#正在看的书" class="headerlink" title="正在看的书"></a>正在看的书</h1><h1 id="看过的书"><a href="#看过的书" class="headerlink" title="看过的书"></a>看过的书</h1><ul>
 <li><a href="http://b.xinshengdaxue.com/index.html" target="_blank" rel="external">新生 七年就是一辈子 — 李笑来</a></li>
+<li>“Elements of Information Theory”部分章节</li>
 </ul>
-<h1 id="看过的书"><a href="#看过的书" class="headerlink" title="看过的书"></a>看过的书</h1>]]></content>
+]]></content>
     </entry>
     
     <entry>
@@ -154,6 +228,18 @@
 <ul>
 <li>开始抱水时，从身体的中线开始，能明显感觉到手臂受到的阻力</li>
 <li>当打完腿后，身体开始旋转时，顺势抱水，能明显感觉到水的阻力，但是手臂借用身体躯干的力量，不会感觉到很累。</li>
+</ul>
+<p>2016-8-1</p>
+<ul>
+<li>当手臂入水时，同侧的腿开始打腿</li>
+<li>换气时，头部跟随手臂向后看</li>
+<li>手臂斜着入水，入水后随即向前伸  </li>
+<li>打腿的时候，臀部绷直，双腿紧夹</li>
+</ul>
+<p>2016-8-2</p>
+<ul>
+<li>打腿时，双腿紧紧并拢。</li>
+<li></li>
 </ul>
 ]]></content>
     </entry>
